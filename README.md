@@ -13,7 +13,11 @@ These studies are about various topics in statistics, including mathematical der
 - Bayes Estimate
 
 ## 2. Hypothesis testing
-- Wald Test and Likelihood Ratio Test
+- [Wald Test and Likelihood Ratio Test](https://github.com/houzhj/Statistics/blob/main/02_Wald%20Test%20and%20Likelihood%20Ratio%20Test.ipynb)
+  - Compare the two maximum-likelihood-based testing methods using simulated testing data, in terms type 1 and type 2 error rates.
+  - Investigate the impact of sample sizes.
+  - Consider the hypothesis testing about the parameters of four distributions: Bernoulli, Binomial, Poisson, and Uniform.
+  - Demonstrated that the test statistic cannot be applied to case with Uniform distribution . 
 - Case Study: Hypothesis Testing Example with a Uniform Distribution
 - Two Sample Test
 - From Wald Test to  Student's t test (T test)
