@@ -5,9 +5,11 @@ These studies are about various topics in statistics, including mathematical der
 - Central Limit Theorem
 - Distribution
 - [Estimations and Confidence Interval](https://github.com/houzhj/Statistics/blob/main/01_Confidence%20Intervals.ipynb)
-  - Three methods to calculate the confidence interval of a parameter: Conservative, Solve, Plug-in
-  - Experimental analysis using simulation to conduct and compare the three methods
-- Delta Method
+  - Three methods to calculate the confidence interval of a parameter: Conservative, Solve, Plug-in.
+  - Using simulation to conduct and compare the three methods.
+- [Delta Method](https://github.com/houzhj/Statistics/blob/main/01_Delta%20Method.ipynb)
+  - Calculate the variance of a random variable (which is a function of another random variables with known distribution).
+  - Compare the theoretical variance (based on the Delta method) with the simulation-based variances.
 - Bayes Estimate
 
 ## 2. Hypothesis testing
