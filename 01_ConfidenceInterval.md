@@ -1,5 +1,5 @@
 # Three Solutions to Calculate Confidence Intervals
-Code
+### ipynb file can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/01_Confidence%20Intervals.ipynb)
 
 Let $X_1,…,X_n$ denote a random sample of independent observations from a population with mean $\mu$ and variance $\sigma^2$. Let $\theta$ be the parameter of interest. 
 According to Central Limit Theorem and the Delta Method (if necessary), we can find the asymptotic distribution of an estimator of $\theta$, 
