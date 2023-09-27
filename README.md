@@ -27,3 +27,9 @@ These studies are about various topics in statistics, including mathematical der
 ## 3. Linear Regression
 - Joint Distribution
 - Linear Regression: Estimate and T Test
+$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
+
+
+```python 
+your_code = do_some_stuff
+```
