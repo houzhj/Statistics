@@ -7,7 +7,7 @@ These studies are about various topics in statistics, including mathematical der
 - [Estimations and Confidence Interval](https://github.com/houzhj/Statistics/blob/main/01_ConfidenceInterval.md)
   - Three methods to calculate the confidence interval of a parameter: Conservative, Solve, Plug-in.
   - Using simulation to conduct and compare the three methods.
-- [Delta Method](https://github.com/houzhj/Statistics/blob/main/01_Delta%20Method.ipynb)
+- [Delta Method](https://github.com/houzhj/Statistics/blob/main/01_DeltaMethod.md)
   - Calculate the variance of a random variable (which is a function of another random variables with known distribution).
   - Compare the theoretical variance (based on the Delta method) with the simulation-based variances.
 - Bayes Estimate
@@ -27,9 +27,4 @@ These studies are about various topics in statistics, including mathematical der
 ## 3. Linear Regression
 - Joint Distribution
 - Linear Regression: Estimate and T Test
-$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 
-
-```python 
-your_code = do_some_stuff
-```
