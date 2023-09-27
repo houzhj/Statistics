@@ -1,5 +1,5 @@
 # Delta Method
-### ipynb file can be found [here]()
+### ipynb file can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/01_delta_method.ipynb)
 
 ### A brief introduction to the Delta Method (Univariate)
 https://en.wikipedia.org/wiki/Delta_method
