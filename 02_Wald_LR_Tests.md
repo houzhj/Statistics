@@ -1,5 +1,4 @@
-
-# Delta Method
+# Wald Test and Likelihood Ratio Test 
 ### ipynb file can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_lr_test.ipynb)
 
 # 1. The Wald Test
