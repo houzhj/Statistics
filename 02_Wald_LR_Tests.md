@@ -1,6 +1,6 @@
 
 # Delta Method
-### ipynb file can be found [here]()
+### ipynb file can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_lr_test.ipynb)
 
 # 1. The Wald Test
 The Wald statistic (for a single parameter $\theta$) takes the following form:
@@ -194,7 +194,7 @@ The plots show that the Type 1 Error rates of these two tests are generally clos
 
 A Binomial distribution has two parameters, $K$ and $p$. Let take $K$ as given ($K$=5)
 
-The codes for this and the the following examples can be found [here]().
+The codes for this and the the following examples can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_lr_test.ipynb).
 
 ### (1) False Null Hypothesis
 <img width="979" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/0151c408-6fe3-4bf3-bc0c-e43e765a9c8a">
