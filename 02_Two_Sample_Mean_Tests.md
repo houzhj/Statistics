@@ -1,4 +1,4 @@
-# Two Sample Tests
+# Two Sample Mean Tests
 ### ipynb file can be found [here]()
 
 Consider two random variables $X$ and $Y$. 
