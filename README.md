@@ -22,7 +22,8 @@ These studies are about various topics in statistics, including mathematical der
   - As discussed above, the Wald Test and the maximum-likelihood-based tests can not be directly applied for uniform distribution.
   - Investegate alternative testing methods.
   - In this testing context, calculate the significant levels for given tests, and find the reject thresholds to achieve desired significant levels. 
-- Two Sample Test
+- [Two Sample Mean Test](https://github.com/houzhj/Statistics/blob/main/02_Two_Sample_Mean_Tests.md)
+  - Conduct and compare several two-sample tests under different scenarios (equal/unequal sample size, equal/unequal variance)
 - From Wald Test to  Student's t test (T test)
 - Multiple Hypothesis Testing (i.e. simultaneously testing multiple hypotheses)
 - Goodness of Fitness Tests
