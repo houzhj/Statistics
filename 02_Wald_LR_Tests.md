@@ -305,10 +305,28 @@ plot_lr_add_chisquare(poiss_lr,'Poisson')
 <img width="366" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/fb514b95-d886-4e4e-8682-0230c3da291a">
 
 ### Sample size = 50
+```python
+sample_size = 50
+uniform_lr  = lr_uniform(sample_size=10,h0=10,b_true=10)
+plot_lr_add_chisquare(uniform_lr,'Uniform')
+
+sample_size = 50
+poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
+plot_lr_add_chisquare(poiss_lr,'Poisson')
+```
 <img width="366" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/507382f4-95c6-4c64-becb-c09fbabacbb3">
 <img width="362" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/f9b055f4-512d-42b3-bbf9-7193f7d4fcf3">
 
 ### sample size = 500
+```python
+sample_size = 500
+uniform_lr  = lr_uniform(sample_size=10,h0=10,b_true=10)
+plot_lr_add_chisquare(uniform_lr,'Uniform')
+
+sample_size = 500
+poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
+plot_lr_add_chisquare(poiss_lr,'Poisson')
+```
 <img width="365" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/9aeea4c7-1646-45b0-a9a4-1c793dbc48ee">
 <img width="364" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/bc6fec84-7f87-4d68-8560-2cdf9739e539">
 
