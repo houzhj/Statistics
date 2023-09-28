@@ -215,9 +215,116 @@ The codes for this and the the following examples can be found [here]().
 
 ## Example 4 - Uniform[0,b]
 Consider a random variable $X \sim U[a,b]$ The maximum likelihood estimator of the upper bound parameter $b$ can be derived as below. 
+
+The likelihood function
 $$L(a,b) = \prod_{i=1}^{n} \dfrac{1}{b-a} = (b-a)^{-n}$$
 $$\downarrow$$
+The log-likelihood function
 $$l(a,b) = -n \times ln(b-a)$$
+$$\downarrow$$
+$$\dfrac{\partial l(a,b)}{\partial a} = \dfrac{n}{b-a}>0$$
+$$\downarrow$$
+$$\dfrac{\partial l(a,b)}{\partial b} = \dfrac{-n}{b-a}<0$$
+
+So $L(a,b)$ is monotonically increasing in with respect to $a$, and $L(a,b)$ is maximized at the largest possible value of $a$. According to observations $(X_1,…,X_n)$,
+
+$$\hat{a}_{MLE} = min(X_1,…,X_n)$$
+Similiary, $L(a,b)$ is monotonically decreasing with respect to $b$, and $L(a,b)$ is maximized at the smallest possible value of $b$. According to observations $(X_1,…,X_n)$,
+
+$$\hat{b}_{MLE} = max(X_1,…,X_n)$$
+
+Technically, these MLEs cannot be used in Wald or LR tests. The test statistics and their distributions under the null hypothesis no longer applies when the true value of the parameter is on the boundary of the parameter space. See https://en.wikipedia.org/wiki/Wilks%27_theorem.
+
+To demonstrate, consider the LR test for $b$ (let's assmue $a=0$ and consider $b$ only). We have
+
+$$l(a,b) = l(0,b) = -n \times ln(b)$$
+
+$$\downarrow$$
+
+$$T_n = 2\times \left[\mathcal{l}(\hat{\theta})-\mathcal{l}(\theta)\right] = 2\times \left[ -n \times ln(X_{(n)})+ n \times ln(b_0)\right] = 2 \times ln \left[\dfrac{b_0}{X_{(n)}}\right]$$
+where $X_{(n)} = max(X_1,...,X_n)$ and $b_0$ is the value of $b$ in the null hypothesis. 
+
+Note that $b_0 \geq X_{(n)}$, otherwise we can directly reject $H_0: b=b_0$ 
+
+The following codes calculate the likelihood ratio test statistics under the null hypothesis for a Uniform distribution and Poission distribution (for reference) in 1000 experiments.
+
+```python
+def lr_uniform(sample_size,h0,b_true):
+    a = 0
+    n_experiment = 1000
+    lr           = [np.nan]*n_experiment
+    for i in range(n_experiment):
+        sample = np.random.uniform(a,b_true,sample_size)
+        bhat   = sample.max()
+        lr[i]   = 2*sample_size*np.log(h0/bhat)
+    return(lr)
+
+def lr_poiss(sample_size,h0,lambda_true):
+    n_experiment = 1000
+    lr           = [np.nan]*n_experiment
+    for i in range(n_experiment):
+        sample      = np.random.poisson(lam=lambda_true,size=sample_size)
+        sample_mean = np.mean(sample)
+        lambdahat   = sample_mean
+        sample_sum  = np.sum(sample) 
+        lr[i]       = 2*(np.log(lambdahat/h0)*sample_sum-sample_size*(lambdahat-h0))
+    return(lr)
+```
+
+The following codes create the histogram of the test statistics obtained in the 1000 experiments, and compare them with the probability distribution functions of chi-square distributions.
+
+```python
+def plot_lr_add_chisquare(lr_data,distribution):
+    plt.hist(lr_data,density=True,label='LR test statistic')
+    x = np.linspace(0, 20, 100)
+    pdf_chi1 = chi2.pdf(x, df=1)
+    pdf_chi2 = chi2.pdf(x, df=2)
+    plt.plot(x, pdf_chi1, 'red', label='Chi-square(dof=1) PDF')
+    plt.plot(x, pdf_chi2, 'green', label='Chi-square(dof=2) PDF')
+    plt.legend()
+    plt.title(distribution)
+    plt.show()
+```
+
+### Sample size = 10
+- For the hypothesis tests about the parameter in a Poisson distribution, the distribution of the likelihood ratio statistics are close to a Chi-square (1) distribution.
+- For the hypothesis tests about the parameter in a Uniform distribution, the distribution of the likelihood ratio statistics are different from the chi-squared distribution.
+- These observations are observed when the sample size is 50 and 500, as well. 
+- These observations are consistent with expectation. 
+ 
+```python
+sample_size = 10
+uniform_lr  = lr_uniform(sample_size=10,h0=10,b_true=10)
+plot_lr_add_chisquare(uniform_lr,'Uniform')
+
+sample_size = 10
+poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
+plot_lr_add_chisquare(poiss_lr,'Poisson')
+```
+<img width="368" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/459bfa44-9b9e-4228-a267-5eaffd488247">
+<img width="366" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/fb514b95-d886-4e4e-8682-0230c3da291a">
+
+### Sample size = 50
+<img width="366" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/507382f4-95c6-4c64-becb-c09fbabacbb3">
+<img width="362" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/f9b055f4-512d-42b3-bbf9-7193f7d4fcf3">
+
+### sample size = 500
+<img width="365" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/9aeea4c7-1646-45b0-a9a4-1c793dbc48ee">
+<img width="364" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/bc6fec84-7f87-4d68-8560-2cdf9739e539">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
