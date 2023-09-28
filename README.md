@@ -13,7 +13,7 @@ These studies are about various topics in statistics, including mathematical der
 - Bayes Estimate
 
 ## 2. Hypothesis testing
-- [Wald Test and Likelihood Ratio Test](https://github.com/houzhj/Statistics/blob/main/02_Wald%20Test%20and%20Likelihood%20Ratio%20Test.ipynb)
+- [Wald Test and Likelihood Ratio Test](https://github.com/houzhj/Statistics/blob/main/02_Wald_LR_Tests.md)
   - Compare the two maximum-likelihood-based testing methods using simulated testing data, in terms type 1 and type 2 error rates.
   - Investigate the impact of sample sizes.
   - Consider the hypothesis testing about the parameters of four distributions: Bernoulli, Binomial, Poisson, and Uniform.
