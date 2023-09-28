@@ -194,6 +194,7 @@ The function below conducts a "two_sample_test" using pre-specified settings:
 - This function considers two data generation process 
   - In the first test, $\mu_1 = 5$, $\mu_2 = 5$. The null hypothesis is true.
   - In the second test, $\mu_1 = 5$, $\mu_2 = 6$. The null hypothesis is false.
+  - Note that when $\mu_1=5$ is fixed, the $\mu_2$ that gives rise to a true $H_0$ is unique - only when $\mu_2=5$ too. But the number of $\mu_2$ that give rise to a false $H_0$ is infinite - it could be any value that is not 5. Here we only consider one of all the possibilities - $\mu_2=6$.
 - For simplicity, we do not change the inputs of $\mu_1$ and $\mu_2$, so stick to the settings above. We can change the sample sizes, and variances of $X$ and $Y$. 
 
 ```python
@@ -287,16 +288,40 @@ plt.show()
 
 <img width="783" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/d932ccc7-eb94-4d25-aed8-171309b5390b">
 
+The results are presented in a scatterplot, with different colors representing different testing methods, and the diameters of the point representing different sample sizes. The points close to the left bottom corner (the origin point) represent better tests (smaller probabilities of both Type 1 error and small Type 2 error). The results show that 
+- Larger points (when sample sizes are larger) are closer to the left bottom corner.
+- When the sample sizes are smaller, the Type 2 Error rates for all the methods are larger.
+- There is no method that is clearly superior to other methods in terms of the power.
+- The t-tests have better significant level than the Wald test. 
 
 
 ## Case 2: Unequal variance, equal sample size
 $X \sim N(\mu_1, 2), Y \sim N(\mu_2, 3)$
 
 Sample size: $n_1 = n_2 = [5,10,20,50,100]$
+sample_size_list_1 = [5,10,20,50,100]
+sample_size_list_2 = [50,50,50,50,50]
 
 ```python
+sigma_2_x          = 2
+sigma_2_y          = 3
+wald_result = two_sample_test_experiment(sample_size_list_1,sample_size_list_1,sigma_2_x,sigma_2_y,'wald_ts')
+t1_result   = two_sample_test_experiment(sample_size_list_1,sample_size_list_1,sigma_2_x,sigma_2_y,'t_ts_1')
+t2_result   = two_sample_test_experiment(sample_size_list_1,sample_size_list_1,sigma_2_x,sigma_2_y,'t_ts_2')
+t3_result   = two_sample_test_experiment(sample_size_list_1,sample_size_list_1,sigma_2_x,sigma_2_y,'t_ts_3')
+combined_results          = pd.concat([wald_result,t1_result,t2_result,t3_result],axis=0)
+combined_results['label'] = combined_results['method'].apply(create_label)
+
+plt.figure(figsize=(7,6))
+sns.scatterplot(data = combined_results,
+                x="type_2_error",y="type_1_error", 
+                hue="label", size="size_x")
+plt.title('Equal sample size, unequal variance')
+plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
+plt.show()
 ```
 
+<img width="781" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/d36fc175-aff4-4f6d-b284-c1e3eec6226b">
 
 
 ## Case 3: Equal variance, unequal sample size
@@ -305,11 +330,26 @@ $X \sim N(\mu_1, 2), Y \sim N(\mu_2, 2)$
 Sample size: $n_1 = [5,10,20,50,100]$, $n_2 = [50,50,50,50,50]$
 
 ```python
+sample_size_list_1 = [5,10,20,50,100]
+sample_size_list_2 = [50,50,50,50,50]
+sigma_2_x          = 2
+sigma_2_y          = 2
+wald_result = two_sample_test_experiment(sample_size_list_1,sample_size_list_2,sigma_2_x,sigma_2_y,'wald_ts')
+t1_result   = two_sample_test_experiment(sample_size_list_1,sample_size_list_2,sigma_2_x,sigma_2_y,'t_ts_1')
+t2_result   = two_sample_test_experiment(sample_size_list_1,sample_size_list_2,sigma_2_x,sigma_2_y,'t_ts_2')
+t3_result   = two_sample_test_experiment(sample_size_list_1,sample_size_list_2,sigma_2_x,sigma_2_y,'t_ts_3')
+combined_results = pd.concat([wald_result,t1_result,t2_result,t3_result],axis=0)
+combined_results['label'] = combined_results['method'].apply(create_label)
+
+plt.figure(figsize=(7,6))
+sns.scatterplot(data = combined_results,
+                x="type_2_error",y="type_1_error", 
+                hue="label", size="size_x")
+plt.title('Equal sample size, unequal variance')
+plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
+plt.show()
 ```
-
-
-
-
+<img width="779" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/0f2e9394-2a19-477e-8329-65570d347a23">
 
 
 ## Case 4: Unequal variance, unequal sample size
@@ -318,15 +358,26 @@ $X \sim N(\mu_1, 2), Y \sim N(\mu_2, 3)$
 Sample size: $n_1 = [5,10,20,50,100]$, $n_2 = [50,50,50,50,50]$
 
 ```python
+sample_size_list_1 = [5,10,20,50,100]
+sample_size_list_2 = [50,50,50,50,50]
+sigma_2_x          = 2
+sigma_2_y          = 3
+wald_result = two_sample_test_experiment(sample_size_list_1,sample_size_list_2,sigma_2_x,sigma_2_y,'wald_ts')
+t1_result   = two_sample_test_experiment(sample_size_list_1,sample_size_list_2,sigma_2_x,sigma_2_y,'t_ts_1')
+t2_result   = two_sample_test_experiment(sample_size_list_1,sample_size_list_2,sigma_2_x,sigma_2_y,'t_ts_2')
+t3_result   = two_sample_test_experiment(sample_size_list_1,sample_size_list_2,sigma_2_x,sigma_2_y,'t_ts_3')
+combined_results = pd.concat([wald_result,t1_result,t2_result,t3_result],axis=0)
+combined_results['label'] = combined_results['method'].apply(create_label)
+
+plt.figure(figsize=(7,6))
+sns.scatterplot(data = combined_results,
+                x="type_2_error",y="type_1_error", 
+                hue="label", size="size_x")
+plt.title('Unequal sample size, unequal variance')
+plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
+plt.show()
 ```
-
-
-
-
-
-
-
-
+<img width="781" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/ec59939b-afec-48bc-a9b9-38ae432ba21d">
 
 
 
