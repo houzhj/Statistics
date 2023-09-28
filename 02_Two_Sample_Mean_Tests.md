@@ -141,7 +141,37 @@ The function below performs a two sample mean test, given that
 - The sample size of $X$ and $Y$, could be same or different
 - The four two-sample testing methods described above: Wald test, t test 1, t test 2, t test 3 are conducted. 
 
+```python
+def two_sample_test(mu_x,sigma2_x,size_x,mu_y,sigma2_y,size_y,method):
+    n_experiment   = 1000
+    results        = pd.DataFrame(columns=['ts','reject'])
+    summary        = pd.DataFrame(columns=['size_x','size_y','h0'])
 
+    for e in range(n_experiment):
+        data_x   = np.random.normal(loc=mu_x,scale=np.sqrt(sigma2_x),size=size_x) 
+        data_y   = np.random.normal(loc=mu_y,scale=np.sqrt(sigma2_y),size=size_y) 
+        if method == 'wald_ts': 
+            ts,reject = wald_ts(data_x,data_y)
+        if method == 't_ts_1':
+            ts,reject = t_ts_1(data_x,data_y)
+        if method == 't_ts_2':
+            ts,reject = t_ts_2(data_x,data_y)
+        if method == 't_ts_3':
+            ts,reject = t_ts_3(data_x,data_y)
+        results.loc[e,'ts']     = ts
+        results.loc[e,'reject'] = reject
+    
+    summary.loc[0,'size_x'] = size_x
+    summary.loc[0,'size_y'] = size_y
+    if mu_x==mu_y:
+        summary.loc[0,'h0']           = 'True'
+        summary.loc[0,'type_1_error'] = results['reject'].mean()
+    else: 
+        summary.loc[0,'h0']           = 'False'
+        summary.loc[0,'type_2_error'] = 1- results['reject'].mean()
+    
+    return results,summary
+```
 
 
 
