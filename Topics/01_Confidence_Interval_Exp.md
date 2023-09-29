@@ -25,7 +25,8 @@ $$\dfrac{1}{\overline{X}} \pm q_{1-\alpha/2} \dfrac{\sqrt{\lambda^2)}}{\sqrt{n}}
    $$CI_{solve} = \left (\hat{\lambda} \left( 1+ \dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)^{-1}, \hat{\lambda} \left(1-\dfrac{q_{1+\alpha/2}}{\sqrt{n}} \right)^{-1} \right)
    = \left (\dfrac{1}{\overline{X}} \left( 1+ \dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)^{-1}, \dfrac{1}{\overline{X}}\left(1-\dfrac{q_{1+\alpha/2}}{\sqrt{n}} \right)^{-1} \right)$$
 
-4. **Plug-in**
+3. **Plug-in**
+   
    Given that $\hat{\lambda}=\dfrac{1}{\overline{X}}$, the confidence interval is
    $$CI_{plug-in} = \dfrac{1}{\overline{X}} \pm q_{1-\alpha/2} \dfrac{\hat{\lambda}}{\sqrt{n}}=\left(
    \dfrac{1}{\overline{X}} \left(1-\dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right) , \dfrac{1}{\overline{X}} \left(1+\dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)\right)$$
