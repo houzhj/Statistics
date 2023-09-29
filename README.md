@@ -4,7 +4,7 @@ These studies are about various topics in statistics, including mathematical der
 ## 1. Some important concepts in statistics
 - Central Limit Theorem
 - Distribution
-- [Estimations and Confidence Interval](https://github.com/houzhj/Statistics/blob/main/01_Confidence_Interval.md)
+- [Estimations and Confidence Interval](https://github.com/houzhj/Statistics/blob/main/Topics/01_Confidence_Interval.md)
   - Three methods to calculate the confidence interval of a parameter: Conservative, Solve, Plug-in.
   - Using simulation to conduct and compare the three methods.
 - [Delta Method](https://github.com/houzhj/Statistics/blob/main/01_Delta_Method.md)
