@@ -2,6 +2,8 @@ https://github.com/houzhj/Statistics/blob/main/images/111.png
 
 <img width="353" alt="image" src="https://github.com/houzhj/Statistics/blob/main/images/111.png">
 
+![My Remote Image](https://github.com/houzhj/Statistics/blob/main/images/111.png)
+
 
 # 3. Examples with Normal distribution 
 Consider the Wald test for a $N(\mu,\sigma^2)$ distribution, with 
