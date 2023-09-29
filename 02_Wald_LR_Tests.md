@@ -8,8 +8,7 @@ $$$$
 
 $$$$
 
-
-# 1. The Wald Test
+## Part 1 - Wald Test
 The Wald statistic (for a single parameter $\theta$) takes the following form:
 $$W = \dfrac{(\hat{\theta}-\theta_0)^2}{var(\hat{\theta})}$$
 Under the null $H_0: \theta = \theta_0$ the test statistic $W \sim \chi^2(1)$
@@ -21,7 +20,7 @@ Under the null $H_0: \theta = \theta_0$ the test statistic $W \sim N(0,1)$
 
 Now focus on this second expression.
 
-# 2. Likelihood Test
+## Part 2 - Likelihood Test
 The likelihood ratio test basically looks at how much more likely is the alternative hypothesis when compared to the null hypothesis. To do this we look at the likelihood ratio (LR), consider the ratio
 
 $$LR =\dfrac{sup_{\theta \in \Theta} L(X_1,...,X_n|\Theta)}{sup_{\theta \in \Theta_0} L(X_1,...,X_n|\Theta_0)} > c > 1$$
@@ -41,7 +40,7 @@ $$T_n = 2\times [\mathcal{l}(\hat{\theta})-\mathcal{l}(\theta)]$$
 According to [Wilks’ theorem](https://en.wikipedia.org/wiki/Wilks%27_theorem), if $H_0$ is true, $T_n$ will be asymptotically chi-squared distributed with degrees of freedom equal to the difference in dimensionality of $\Theta$ and $\Theta_0$
 
 
-# 3. Examples
+## Part 3. Examples
 Next, we will perform and compare the Wald tests and the Likelihood Ratio (LR) tests through simulations. 
 - We will consider several examples of hypothesis tests regarding parameters from different distributions.
   - Bernoulli distribution
@@ -60,7 +59,7 @@ The codes below calculate the Wald test statistic using simulated data
 - This is a distribution specific function. For example, this one is for Bernoulli distribution, meaning the test statistic and data generation are specific for Bernoulli distribution. 
 - One can specifies the sample size
 - One can specifies the true parameter (p_true) and the parameter in the null hypothesis (h0). If p_true = h0, the null is true; otherwise, the null is false.
-- The notes abovo apply to many functions below as well. 
+- The notes above apply to many functions below as well. 
 
 ```python
 def wald_ber_two_side(sample_size,h0,p_true,alpha=0.05):
