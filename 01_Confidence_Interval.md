@@ -1,6 +1,17 @@
 # Three Solutions to Calculate Confidence Intervals
-### ipynb file can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/01_confidence_intervals.ipynb)
+### The contents of this note
+- **Derivation of a general form of confidence interval for the parameter**
+- **Three methods to find a confidence interval based on known information from the sample**
+- **Examples**
+  - Bernoulli
+  - Exponential
+  - Gamma 
 
+$$$$
+
+$$$$
+
+## Part 1 - Derivation of a general form of confidence interval for the parameter
 Let $X_1,…,X_n$ denote a random sample of independent observations from a population with mean $\mu$ and variance $\sigma^2$. Let $\theta$ be the parameter of interest. 
 According to Central Limit Theorem and the Delta Method (discussed [here](https://github.com/houzhj/Statistics/blob/main/01_Delta_Method.md)) (if necessary), we can find the asymptotic distribution of an estimator of $\theta$, 
 denoted by $\hat{\theta}$. Note that $\hat{\theta}$ needs to be a function of sample mean $\overline{X}$.
@@ -16,25 +27,15 @@ For example,
 
 A 95% ($\alpha=0.05$) confidence interval of $\theta$ can be defined by $\hat{\theta}\pm x$, where $x$ is a positive value such that
 $$P(|\hat{\theta}-\theta|>x)<\alpha$$
+The general form of a confidence interval of $\theta$ (for $\alpha=0.05$) is shown below ([see derivation here](https://github.com/houzhj/Statistics/blob/main/Math/01_c_i_01.md))
 
-Equivalently,
-$$P\left(|\hat{\theta}-\theta|>x \right)=2P\left[(\hat{\theta}-\theta)>x) \right]=2\left(1-P[(\hat{\theta}-\theta) \leq x]\right)$$
-$$=2\left[1-P\left(\dfrac{\sqrt{n}(\overline{\theta}-\theta)}{\sigma}\leq\dfrac{\sqrt{n}x}{\sigma}\right)\right] 
-\textcolor{red}{=} 2 \left[1- \Phi \left(\dfrac{\sqrt{n}x}{\sigma}\right)\right] = \alpha$$
-where $\Phi()$ is the CDF of standard Normal distribution.
 
-The red equation is according to the Central Limit Theorem.
-Since $$2 \left[1- \Phi \left(\dfrac{\sqrt{n}x}{\sigma}\right)\right] = \alpha$$
-we have 
-$$\dfrac{\sqrt{n}x}{\sigma} =\Phi^{-1}(1-\dfrac{\alpha}{2})=q_{1-\alpha/2}$$
-Therefore
-$$x=q_{1-\alpha/2}\dfrac{\sigma}{\sqrt{n}}$$
-So the general form of a confidence interval of $\theta$ is (for $\alpha=0.05$)
 $$\hat{\theta}\pm x = \hat{\theta} \pm q_{1-\alpha/2}\dfrac{\sigma}{\sqrt{n}} = \hat{\theta} \pm 1.96\dfrac{\sigma}{\sqrt{n}}$$
 
 The problem with this form of confidence interval is, $\sigma$, which is usually a function of the true parameter of the underlying distribution, is unknown. 
 
-## So we can use three solutions to get a confidence interval based on known information.
+## Part 2 - Three solutions
+We can use three solutions to get a confidence interval based on known information.
 1. **Conservative Bound**: if $\sigma$ is bounded at $\sigma_0$, plug-in $\sigma_0$ to form the $CI_{cons}$
   $$CI_{cons} = \hat{\theta} \pm q_{1-\alpha/2}\dfrac{\sigma_0}{\sqrt{n}}$$
 2. **Solve**: If $\sigma$ is a function of $\theta$, i.e., $\sigma=f(\theta)$, solve the inequality
@@ -45,7 +46,8 @@ The problem with this form of confidence interval is, $\sigma$, which is usually
 3. **Plug in**: If $\sigma$ is a function of $\theta$, i.e., $\sigma=f(\theta)$, plug in the estimate of $\theta$, (i.e., $\hat{\theta}$) to this function
    $$CI_{plug-in} = \hat{\theta} \pm q_{1-\alpha/2}\dfrac{f(\hat{\theta})}{\sqrt{n}}$$
 
-### Now consider a few examples from different distributions.
+## Part 3 - Examples from different distributions
+Now consider a few examples from different distributions.
 ## Example A - Bernoulli Distribution
 $$X \sim Ber(p), \hat{p} = \overline{X}$$
 
