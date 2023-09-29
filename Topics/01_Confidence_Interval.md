@@ -39,10 +39,9 @@ $$P(|\hat{\theta}-\theta|>x)<\alpha$$
 Equivalently,
 $$P\left(|\hat{\theta}-\theta|>x \right)=2P\left[(\hat{\theta}-\theta)>x) \right]=2\left(1-P[(\hat{\theta}-\theta) \leq x]\right)$$
 $$=2\left[1-P\left(\dfrac{\sqrt{n}(\overline{\theta}-\theta)}{\sigma}\leq\dfrac{\sqrt{n}x}{\sigma}\right)\right] 
-\textcolor{red}{=} 2 \left[1- \Phi \left(\dfrac{\sqrt{n}x}{\sigma}\right)\right] = \alpha$$
+= 2 \left[1- \Phi \left(\dfrac{\sqrt{n}x}{\sigma}\right)\right] = \alpha$$
 where $\Phi()$ is the CDF of standard Normal distribution.
 
-The red equation is according to the Central Limit Theorem.
 Since $$2 \left[1- \Phi \left(\dfrac{\sqrt{n}x}{\sigma}\right)\right] = \alpha$$
 we have 
 $$\dfrac{\sqrt{n}x}{\sigma} =\Phi^{-1}(1-\dfrac{\alpha}{2})=q_{1-\alpha/2}$$
@@ -74,6 +73,11 @@ $$$$
 
 
 ## Part 3 - Examples from different distributions
-- [**Example A - Bernoulli Distribution**]()
+- **Example A - Bernoulli Distribution**: [[math]](https://github.com/houzhj/Statistics/blob/main/Topics/01_Confidence_Interval_Ber.md) [[code]]()
+  - $CI_{cons} = \overline{X} \pm q_{1-\alpha/2}\dfrac{0.5}{\sqrt{n}}$
+ 
+  - $CI_{solve} = \left( \dfrac{-B \pm \sqrt{B^2-4AC}}{2A} \right)$, where $A=1+\dfrac{(q_{1-\alpha/2})^2}{n}, B=-2\overline{X}-\dfrac{(q_{1-\alpha/2})^2}{n}, C=(\overline{X})^2$
+ 
+  - $CI_{plug-in} =\overline{X} \pm q_{1-\alpha/2} \dfrac{\sqrt{\overline{X}(1-\overline{X})}}{\sqrt{n}}$
 - **Example B - Exponential Distribution**
 - **Example C - Gamma Distribution**
