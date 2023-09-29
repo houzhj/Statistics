@@ -19,7 +19,7 @@ Then, according to the Delta Method,
 $$\sqrt{n}(g(\overline{X})-g(\mu)) \rightarrow N(0,\sigma^2 g'(\mu)^2)$$
 
 ## Part 1 - Derive the variance of a random variable using Delta Method
-**Two distribution (of the original random variable) are consider:**
+**Two distributions (of the original random variable) are considered:**
 - Normal
 - Exponential
 
