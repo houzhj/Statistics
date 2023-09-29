@@ -11,7 +11,7 @@ The confidence interval of $p$ can be written as
 $$\overline{X} \pm q_{1-\alpha/2} \dfrac{\sqrt{p(1-p)}}{\sqrt{n}}$$
 
 
-#### 1. **Conservative Bound**:
+#### 1. **Conservative Bound**
    
    Since $\sqrt{p(1-p)}\leq\sqrt{0.5(1-0.5)}=0.5$ when $p \in (0,1)$, we have
    $$CI_{cons} = \overline{X} \pm q_{1-\alpha/2}\dfrac{0.5}{\sqrt{n}}$$
