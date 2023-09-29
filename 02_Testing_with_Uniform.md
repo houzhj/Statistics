@@ -1,5 +1,13 @@
 # Hypothesis Testing Example with a Uniform Distribution
-### ipynb file can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/02_testing_with_uniform_distribution.ipynb)
+### The contents of this note
+- **111**
+- **222**
+
+
+$$$$
+
+$$$$
+
 
 Consider a hypothesis testing with a random variable $X \sim U[a,b]$, with 
 $$H_0: b = c$$
