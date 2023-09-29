@@ -1,9 +1,3 @@
-https://github.com/houzhj/Statistics/blob/main/images/111.png
-
-<img width="353" alt="image" src="https://github.com/houzhj/Statistics/blob/main/images/111.png">
-
-![My Remote Image](https://github.com/houzhj/Statistics/blob/main/images/111.png)
-
 
 # 3. Examples with Normal distribution 
 Consider the Wald test for a $N(\mu,\sigma^2)$ distribution, with 
@@ -37,7 +31,7 @@ where
 $$s_n^2 = \dfrac{1}{n-1} \sum_{i=1}^n \left( X_i-\overline{X}\right)^2$$
 
 Under $H_0: \mu = \mu_0$, and $n$ is large enough 
-$$W \rightarrow \dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1)$
+$$W \rightarrow \dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1)$$
 However, this does not hold when $n$ is small, see discussion below.
 
 ## 3.1 - Very Small Sample Size
