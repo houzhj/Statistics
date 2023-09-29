@@ -163,7 +163,7 @@ temp.iloc[:,1] = list(true_value_in_ci.mean())
 temp
 ```
 
-![](images/01_ci_01.png)
+![](notes/Images/MathematicalBasis.png)
 
 
 Comparing the width of the confidence intervals derived using different methods
@@ -217,7 +217,6 @@ $$\dfrac{1}{\overline{X}} \pm q_{1-\alpha/2} \dfrac{\sqrt{\lambda^2)}}{\sqrt{n}}
 Then calculate the three types of confidence intervals using simulated data. Assume the true value of $\lambda$ is 3. Consider a level 90% for Confidence Intervals (i.e. $\alpha$=10%). The codes are similar with those for Example A.
 
 ```python
-image.png
 ### True value(s) of distribution parameter(s)
 true_Lambda = 3
 
