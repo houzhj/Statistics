@@ -1,5 +1,12 @@
 # From Wald Test to Student's t test (T test)
-### ipynb file can be found [here]()
+### The contents of this note
+- **111**
+- **222**
+
+
+$$$$
+
+$$$$
 
 # 1. Wald Test
 Wald test is a maximum likelihood estimate based test. It is based on the asymptotic normal approximation to the maximum likelihood estimator.
