@@ -79,5 +79,24 @@ $$$$
   - $CI_{solve} = \left( \dfrac{-B \pm \sqrt{B^2-4AC}}{2A} \right)$, where $A=1+\dfrac{(q_{1-\alpha/2})^2}{n}, B=-2\overline{X}-\dfrac{(q_{1-\alpha/2})^2}{n}, C=(\overline{X})^2$
  
   - $CI_{plug-in} =\overline{X} \pm q_{1-\alpha/2} \dfrac{\sqrt{\overline{X}(1-\overline{X})}}{\sqrt{n}}$
-- **Example B - Exponential Distribution**
-- **Example C - Gamma Distribution**
+- **Example B - Exponential Distribution**: [[math]](https://github.com/houzhj/Statistics/blob/main/Topics/01_Confidence_Interval_Exp.md) [[code]]()
+  - $CI_{cons} = (-\infty,\infty)$
+ 
+  - $CI_{solve} = \left (\dfrac{1}{\overline{X}} \left( 1+ \dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)^{-1}, \dfrac{1}{\overline{X}}\left(1-\dfrac{q_{1+\alpha/2}}{\sqrt{n}} \right)^{-1} \right)$
+ 
+  - $CI_{plug-in} =\left(
+   \dfrac{1}{\overline{X}} \left(1-\dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right) , \dfrac{1}{\overline{X}} \left(1+\dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)\right)$
+
+  
+- **Example C - Gamma Distribution**: [[math]]() [[code]]()
+  - $CI_{cons} = (-\infty,\infty)$
+ 
+  - $CI_{solve} = \left( \dfrac{-B \pm \sqrt{B^2-4AC}}{2A} \right)$ where $A=1, B=-2\sqrt{\overline{X}}-\dfrac{q^2}{4n}, C=\overline{X}$
+ 
+  - $CI_{plug-in} = \sqrt{\overline{X}} \pm \dfrac{q\sqrt{\sqrt{\overline{X}}}}{2\sqrt{n}}$
+
+
+
+
+
+
