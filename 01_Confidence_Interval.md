@@ -38,11 +38,17 @@ The problem with this form of confidence interval is, $\sigma$, which is usually
 We can use three solutions to get a confidence interval based on known information.
 1. **Conservative Bound**: if $\sigma$ is bounded at $\sigma_0$, plug-in $\sigma_0$ to form the $CI_{cons}$
   $$CI_{cons} = \hat{\theta} \pm q_{1-\alpha/2}\dfrac{\sigma_0}{\sqrt{n}}$$
+
+$$$$
+
 2. **Solve**: If $\sigma$ is a function of $\theta$, i.e., $\sigma=f(\theta)$, solve the inequality
   $$\hat{\theta} - q_{1-\alpha/2}\dfrac{f(\theta)}{\sqrt{n}} \leq \theta  \leq \hat{\theta} + q_{1-\alpha/2}\dfrac{f(\theta)}{\sqrt{n}}$$
   The solution to this problem is $a \leq \theta \leq b$, then
   $$CI_{solve} = (a,b)$$
   Note that the this confidence interval $CI_{solve}$ is not necessarily centered on the estimate $\hat{\theta}$.
+
+$$$$
+
 3. **Plug in**: If $\sigma$ is a function of $\theta$, i.e., $\sigma=f(\theta)$, plug in the estimate of $\theta$, (i.e., $\hat{\theta}$) to this function
    $$CI_{plug-in} = \hat{\theta} \pm q_{1-\alpha/2}\dfrac{f(\hat{\theta})}{\sqrt{n}}$$
 
@@ -157,10 +163,8 @@ ci_results['narrowest']          = ci_results[['conservative_range',
 ci_results.head().round(4)
 ```
 
-
 In all experiments, "plugin" CIs are the narrowest.
-
-<img width="902" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/aa27f22b-d30d-4ebd-b7bb-02a6d1ce365e">
+[See results hereTBD.]()
 
 
 ## Example B - Exponential Distribution
@@ -266,7 +270,7 @@ ci_results.head().round(4)
 ```
 
 In all experiments, "plugin" CIs are the narrowest.
-
+[See results hereTBD.]()
 
 ## Example C - Gamma Distribution
 $$X \sim Gamma(\alpha,1/\alpha), \hat{\alpha} = \sqrt{\overline{X}}$$
@@ -374,3 +378,4 @@ ci_results.head().round(4)
 ```
 
 In all experiments, "plugin" CIs are the narrowest.
+[See results hereTBD.]()
