@@ -1,5 +1,13 @@
 # Wald Test and Likelihood Ratio Test 
-### ipynb file can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_lr_test.ipynb)
+### The contents of this note
+- **111**
+- **222**
+
+
+$$$$
+
+$$$$
+
 
 # 1. The Wald Test
 The Wald statistic (for a single parameter $\theta$) takes the following form:
