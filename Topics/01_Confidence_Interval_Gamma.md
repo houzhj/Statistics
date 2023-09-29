@@ -40,6 +40,9 @@ $$\sqrt{\overline{X}} \pm q \dfrac{\sqrt{\alpha/4}}{\sqrt{n}} = \sqrt{\overline{
 
 
 ### Part 2 - Python Codes
+
+The code is [here]().
+
 Then calculate the three types of confidence intervals using simulated data. Assume the true value of $\alpha$ is 3. Consider a level 90% for Confidence Intervals (i.e. $\alpha$=10%). The codes are similar with those for Example A and Example B.
 
 ```python
