@@ -9,7 +9,7 @@ By central limit theorem and delta method, $\sqrt{n}\left(\dfrac{1}{\overline{X}
 The confidence interval can be written as 
 $$\dfrac{1}{\overline{X}} \pm q_{1-\alpha/2} \dfrac{\sqrt{\lambda^2)}}{\sqrt{n}} = \dfrac{1}{\overline{X}} \pm q_{1-\alpha/2} \dfrac{\lambda}{\sqrt{n}}$$
 
-1. **Conservative Bound**:
+1. **Conservative Bound**
    
    $\lambda>0$ is not bounded, so 
    $$CI_{cons} = (-\infty,\infty)$$
@@ -32,6 +32,9 @@ $$\dfrac{1}{\overline{X}} \pm q_{1-\alpha/2} \dfrac{\sqrt{\lambda^2)}}{\sqrt{n}}
 
 
 ### Part 2 - Python codes
+
+The code is [here]().
+
 Then calculate the three types of confidence intervals using simulated data. Assume the true value of $\lambda$ is 3. Consider a level 90% for Confidence Intervals (i.e. $\alpha$=10%). The codes are similar with those for Example A.
 
 ```python
