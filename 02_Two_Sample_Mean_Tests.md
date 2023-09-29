@@ -1,5 +1,13 @@
 # Two Sample Mean Tests
-### ipynb file can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/02_two_sample_mean_test.ipynb)
+### The contents of this note
+- **111**
+- **222**
+
+
+$$$$
+
+$$$$
+
 
 Consider two random variables $X$ and $Y$. 
 $$E(X) = \mu_1, Var(X) = \sigma_1^2$$
