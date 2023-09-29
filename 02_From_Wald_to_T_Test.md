@@ -402,7 +402,35 @@ As shown in the table below, the Type 2 error rate is higher than 10\% until the
 <img width="273" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/5e899f8b-7bac-4b44-a475-82ba01d46dbf">
 
 
+# 3. Examples with Normal distribution 
+Consider the Wald test for the mean of a $N(\mu,\sigma^2)$ distribution. As discussed above, the Wald test statistic is
+$$W = \dfrac{\hat{\mu}-\mu}{\sqrt{var(\hat{\mu})}} = \dfrac{\hat{\mu}-\mu_0}{se(\hat{\mu})}$$
 
+The maximum likelihood estimate of $\mu$ is 
+$$\hat{\mu} = overline{X}$$
+and the sample variance of $\hat{mu}$ is 
+$$\widehat{Var}(\hat{\mu}) =\widehat{Var}(\overline{X}) = \widehat{Var}\left(\dfrac{1}{n} \sum_{i=1}^n X_i \right) =\dfrac{1}{n^2}\widehat{Var}\left(\sum_{i=1}^n X_i  \right)=\dfrac{1}{n^2}\times n \times \widehat{Var}(X_i) $$
+$$ = \dfrac{1}{n}\widehat{Var}(X_i) = \dfrac{1}{n}\widehat{Var}(\sigma^2) = \dfrac{1}{n-1}\sum_{i=1}^n \left(X_i-\overline{X}\right)^2 = s_n^2$$
+
+It can be proved (shown below) that $s_n^2$ is an unbiased estimator or $\sigma_2$, i.e., $E(s^2)=\sigma^2$
+
+#### Proof:
+$$E(s^2) = E\left[ \dfrac{1}{n-1}\sum_{i=1}^n \left(X_i-\overline{X}\right)^2   \right] = \dfrac{1}{n-1}E\left[ \sum_{i=1}^n X_i^2 +n(\overline{X})^2 - 2 \sum_{i=1}^n X_i \overline{X}\right]$$
+$$ =\dfrac{1}{n-1}E\left[ \sum_{i=1}^n X_i^2 -n(\overline{X}^2) \right]= \dfrac{1}{n-1} \left[ nE(X_i^2)-nE(\overline{X}^2)\right]$$
+
+$$ = \dfrac{n}{n-1} \left( \left[E(X_i)^2+Var(X_i)\right]-   \left[E(\overline{X})^2+Var(\overline{X})\right]   \right)  $$
+
+$$ = \dfrac{n}{n-1} \left[  \left(\mu^2+\sigma^2\right)-\left(\mu^2 + \dfrac{1}{n}\sigma^2\right)  \right] = \dfrac{n}{n-1} \left( \dfrac{n-1}{n}\sigma^2\right)=\sigma^2$$
+
+### QED
+
+So the $W$ statistic in a given sample is calculated as 
+$$W =  \dfrac{\hat{\mu}-\mu}{\sqrt{\widehat{var}(\hat{\mu})}} = \dfrac{\hat{\mu}-\mu}{\sqrt{s_n^2}}$$
+where 
+$$s_n^2 = \dfrac{\hat{\mu}-\mu}{\sqrt{\dfrac{1}{n-1}\sum_{i=1}^n \left(X_i-\overline{X}\right)^2}}$$
+
+Under $H_0: \mu = \mu_0$, and $n$ is large enough 
+$$W \rightarrow \dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1)$$
 
 
 
