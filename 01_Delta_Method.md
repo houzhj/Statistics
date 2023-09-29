@@ -1,6 +1,15 @@
 # Delta Method
-### ipynb file can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/01_delta_method.ipynb)
+### The contents of this note
+- **Derivation of a general form of confidence interval for the parameter**
+- **Three methods to find a confidence interval based on known information from the sample**
+- **Examples**
+  - Bernoulli
+  - Exponential
+  - Gamma 
 
+$$$$
+
+$$$$
 ### A brief introduction to the Delta Method (Univariate)
 https://en.wikipedia.org/wiki/Delta_method
 
