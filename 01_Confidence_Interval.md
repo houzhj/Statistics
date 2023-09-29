@@ -51,7 +51,7 @@ Now consider a few examples from different distributions.
 ### Example A - Bernoulli Distribution
 $$X \sim Ber(p), \hat{p} = \overline{X}$$
 
-The three confidence intervals are
+The three confidence intervals are ([see derivation here](https://github.com/houzhj/Statistics/blob/main/Math/01_c_i_02.md))
  - $CI_{cons} = \overline{X} \pm q_{1-\alpha/2}\dfrac{0.5}{\sqrt{n}}$
  
   - $CI_{solve} = \left( \dfrac{-B \pm \sqrt{B^2-4AC}}{2A} \right)$, where $A=1+\dfrac{(q_{1-\alpha/2})^2}{n}, B=-2\overline{X}-\dfrac{(q_{1-\alpha/2})^2}{n}, C=(\overline{X})^2$
@@ -166,7 +166,8 @@ In all experiments, "plugin" CIs are the narrowest.
 ## Example B - Exponential Distribution
 $$X \sim Exp(\lambda), \hat{\lambda} = \dfrac{1}{\overline{X}}$$
 
-The three confidence intervals are
+The three confidence intervals are ([see derivation here](https://github.com/houzhj/Statistics/blob/main/Math/01_c_i_03.md))
+
 - $CI_{cons} = (-\infty,\infty)$
  
 - $CI_{solve} = \left (\dfrac{1}{\overline{X}} \left( 1+ \dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)^{-1}, \dfrac{1}{\overline{X}}\left(1-\dfrac{q_{1+\alpha/2}}{\sqrt{n}} \right)^{-1} \right)$
@@ -271,7 +272,8 @@ In all experiments, "plugin" CIs are the narrowest.
 $$X \sim Gamma(\alpha,1/\alpha), \hat{\alpha} = \sqrt{\overline{X}}$$
 Note that there is a simplified setting that $\beta = 1/\alpha$, which is not necessarioy the case. So there is only one unknown parameter.
 
-The three confidence intervals are
+The three confidence intervals are ([see derivation here](https://github.com/houzhj/Statistics/blob/main/Math/01_c_i_04.md))
+
 - $CI_{cons} = (-\infty,\infty)$
  
 - $CI_{solve} = \left( \dfrac{-B \pm \sqrt{B^2-4AC}}{2A} \right)$ where $A=1, B=-2\sqrt{\overline{X}}-\dfrac{q^2}{4n}, C=\overline{X}$
