@@ -1,14 +1,18 @@
 # Wald Test and Likelihood Ratio Test 
 ### The contents of this note
-- **111**
-- **222**
-
+- **Wald Test**
+- **Likelihood Ratio test**
+- **Examples**
+  - **Bernoulli distribution**
+  - **Binomial distribution**
+  - **Poisson distribution**
+  - **Uniform distribution**
 
 $$$$
 
 $$$$
 
-## Part 1 - Wald Test
+## Part 1 - Wald test
 The Wald statistic (for a single parameter $\theta$) takes the following form:
 $$W = \dfrac{(\hat{\theta}-\theta_0)^2}{var(\hat{\theta})}$$
 Under the null $H_0: \theta = \theta_0$ the test statistic $W \sim \chi^2(1)$
@@ -20,7 +24,7 @@ Under the null $H_0: \theta = \theta_0$ the test statistic $W \sim N(0,1)$
 
 Now focus on this second expression.
 
-## Part 2 - Likelihood Test
+## Part 2 - Likelihood Ratio test
 The likelihood ratio test basically looks at how much more likely is the alternative hypothesis when compared to the null hypothesis. To do this we look at the likelihood ratio (LR), consider the ratio
 
 $$LR =\dfrac{sup_{\theta \in \Theta} L(X_1,...,X_n|\Theta)}{sup_{\theta \in \Theta_0} L(X_1,...,X_n|\Theta_0)} > c > 1$$
@@ -157,8 +161,7 @@ for h0 in h0_list:
     else:
         compare_final = pd.concat([compare_final,compare_now],axis=0)
 ```
-The results are stored in a dataframe, but let's show them by plots. 
-<img width="976" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/1ab19b0a-564d-40fa-bce8-0498d709160c">
+[See results hereTBD]()
 
 The results suggest:
 - The Type 2 Error rates of the two tests are close, with different sample sizes.
@@ -167,7 +170,6 @@ The results suggest:
 
 ### (2) True Null Hypothesis
 Consider the null hypothesis (which is true): $H_0 = 0.4, H_1 \ne 0.4$
-
 
 ```python
 sample_size_list = [20,50,100,200,400,1000]
@@ -190,7 +192,7 @@ g.map(sns.scatterplot,'sample_size','type_1_error',alpha=0.5)
 g.add_legend()
 plt.show()
 ```
-<img width="260" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/616c0436-0295-44db-bc60-d80364d8cbad">
+[See results hereTBD]()
 
 The plots show that the Type 1 Error rates of these two tests are generally close - around 5% to 10%.
 
@@ -203,21 +205,18 @@ A Binomial distribution has two parameters, $K$ and $p$. Let take $K$ as given (
 The codes for this and the the following examples can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_lr_test.ipynb).
 
 ### (1) False Null Hypothesis
-<img width="979" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/0151c408-6fe3-4bf3-bc0c-e43e765a9c8a">
+[See results hereTBD]()
 
 ### (2) True Null Hypothesis
-<img width="254" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/0779f20c-a9bf-4bd6-a106-ac49a788718d">
-
+[See results hereTBD]()
 
 ## Example 3 - Poisson(5)
 
 ### (1) False Null Hypothesis
-<img width="986" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/aa65a13b-5c5f-4c8c-b77f-3ea2c512429b">
-
+[See results hereTBD]()
 
 ### (2) True Null Hypothesis
-<img width="247" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/449b2a10-3808-469f-9a58-0b62427a6243">
-
+[See results hereTBD]()
 
 ## Example 4 - Uniform[0,b]
 Consider a random variable $X \sim U[a,b]$ The maximum likelihood estimator of the upper bound parameter $b$ can be derived as below. 
@@ -307,8 +306,8 @@ sample_size = 10
 poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
 plot_lr_add_chisquare(poiss_lr,'Poisson')
 ```
-<img width="368" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/459bfa44-9b9e-4228-a267-5eaffd488247">
-<img width="366" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/fb514b95-d886-4e4e-8682-0230c3da291a">
+[See results hereTBD]()
+
 
 ### Sample size = 50
 ```python
@@ -320,8 +319,8 @@ sample_size = 50
 poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
 plot_lr_add_chisquare(poiss_lr,'Poisson')
 ```
-<img width="366" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/507382f4-95c6-4c64-becb-c09fbabacbb3">
-<img width="362" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/f9b055f4-512d-42b3-bbf9-7193f7d4fcf3">
+[See results hereTBD]()
+
 
 ### sample size = 500
 ```python
@@ -333,10 +332,7 @@ sample_size = 500
 poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
 plot_lr_add_chisquare(poiss_lr,'Poisson')
 ```
-<img width="365" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/9aeea4c7-1646-45b0-a9a4-1c793dbc48ee">
-<img width="364" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/bc6fec84-7f87-4d68-8560-2cdf9739e539">
-
-
+[See results hereTBD]()
 
 
 
