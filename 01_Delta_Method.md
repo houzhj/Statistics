@@ -1,16 +1,16 @@
 # Delta Method
 ### The contents of this note
-- **Derivation of a general form of confidence interval for the parameter**
-- **Three methods to find a confidence interval based on known information from the sample**
+- **A brief introduction to the Delta Method (Univariate)**
 - **Examples**
-  - Bernoulli
-  - Exponential
-  - Gamma 
+  - Normal(10,5)
+  - Exponential(5)
+
 
 $$$$
 
 $$$$
-### A brief introduction to the Delta Method (Univariate)
+
+## Part 1 - A brief introduction to the Delta Method (Univariate)
 https://en.wikipedia.org/wiki/Delta_method
 
 Let $X_1,...X_n$ denote a random sample of independent observations from a population with mean $\mu$ and variance $\sigma^2$. 
@@ -23,29 +23,31 @@ Then, according to the Delta Method,
 
 $$\sqrt{n}(g(\overline{X})-g(\mu)) \rightarrow N(0,\sigma^2 g'(\mu)^2)$$
 
-### The goals of this study are to 
-- Calculate the variance of a random variable (which is a function of another random variables with known distribution, including the true values of the distribution parameters).
-- Compare the theoretical variance (based on the Delta Method) with the simulation-based variances.
 
-### Two distribution (of the original random variable) are consider:
+
+## Part 2 - Examples
+**Two distribution (of the original random variable) are consider:**
 - Normal
 - Exponential
 
-### Three $g(.)$ functions applied to the original random variable to generate a new random variable) are considered:
+**Three $g(.)$ functions applied to the original random variable to generate a new random variable) are considered**
 - $g(x) = 2x$
 - $g(x) = 1/x$
 - $g(x) = x^2$
 
 All of these funcstion satisfies that $g'(\mu)$ exists and $g'(\mu) \ne 0$.
 
-## Examples
+**The goals of this study are to**
+- Calculate the variance of a random variable (which is a function of another random variables with known distribution, including the true values of the distribution parameters).
+- Compare the theoretical variance (based on the Delta Method) with the simulation-based variances.
+
 
 ```python
 n_experiment = 1000
 sample_size  = 1000
 ```
 
-## Example 1 - Normal Distribution (10,5)
+### Example 1 - Normal Distribution (10,5)
 $$\sqrt{n}(\overline{X}-\mu) \rightarrow N(0,\sigma^2)$$
 
 Generate a sample with 1000 obserbatins for the original random variable and calculate the sample mean. 
@@ -74,7 +76,7 @@ So we have 1000 simulated values of $t=\sqrt{n}(g(\overline{X})-g(\mu))$, then
 - create a histogram of $t$
 - compare the theoretical variance (based on the Delta Method) and the simulation-based variance of $t$.
 
-### Function 1
+**Function 1**
 
 $$g(x) = 2x \rightarrow g'(x)=2 \rightarrow g'(x)^2=4 \rightarrow g'(\mu)^2=4$$ 
 
@@ -93,10 +95,7 @@ print("Theoretical Variance: " + str(4*sigma2))
 print("Sample Variance: " + str(round(np.var(series_2,ddof=1),3)))
 ```
 
-<img width="371" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/eabbc803-e42c-4793-b8a3-92cd7930d92a">
-
-
-### Function 2
+**Function 2**
 
 
 $$g(x) = \frac{1}{x} \rightarrow g'(x)=-x^{-2} \rightarrow g'(x)^2=x^{-4} \rightarrow g'(\mu)^2=\mu^{-4}$$ 
@@ -114,10 +113,7 @@ print("Theoretical Variance: " + str(sigma2*mu**(-4)))
 print("Sample Variance: " + str(round(np.var(series_3,ddof=1),5)))
 ```
 
-<img width="367" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/852a378e-f0f5-4dd1-9969-02ec08bc3ea3">
-
-
-### Function 3
+**Function 3**
 
 $$g(x) = x^2 \rightarrow g'(x)=2x \rightarrow g'(x)^2=4x^2 \rightarrow g'(\mu)^2=4\mu^2$$ 
 
@@ -133,10 +129,9 @@ plt.show()
 print("Theoretical Variance: " + str(sigma2*4*mu**(2)))
 print("Sample Variance: " + str(round(np.var(series_4,ddof=1),5)))
 ```
-<img width="373" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/6332681f-1591-46a6-9346-5e002f0f1672">
+[See results hereTBD.]()
 
-
-## Example 2 - Exponential Distribution (5)
+### Example 2 - Exponential Distribution (5)
 $$\sqrt{n}\left(\overline{X}-\dfrac{1}{\lambda}\right) \rightarrow N\left(0,\dfrac{1}{\lambda^2}\right)$$
 Generate a sample with 1000 obserbatins for the original random variable and calculate the sample mean. 
 ```python
@@ -162,7 +157,7 @@ series_4 = [np.sqrt(sample_size)*(sample_mean[i]**2-Theoretical_mean**2) for i i
 ```
 
 
-### Function 1
+**Function 1**
 
 $$g(x) = 2x \rightarrow g'(x)=2 \rightarrow g'(x)^2=4 \rightarrow g'(\dfrac{1}{\lambda})^2=4$$ 
 
@@ -180,10 +175,8 @@ plt.show()
 print("Theoretical Variance: " + str(round((4*(1/Lambda)**2),3)))
 print("Sample Variance: " + str(round(np.var(series_2,ddof=1),3)))
 ```
-<img width="365" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/ad146ab5-3ffa-4c54-8fdf-abedd9dc905f">
 
-
-### Function 2
+**Function 2**
 
 $$g(x) = \frac{1}{x} \rightarrow g'(x)=-x^{-2} \rightarrow g'(x)^2=x^{-4} \rightarrow  g'(\dfrac{1}{\lambda})^2=\lambda^4$$ 
 
@@ -201,11 +194,8 @@ print("Theoretical Variance: " + str(Lambda**2))
 print("Sample Variance: " + str(round(np.var(series_3,ddof=1),3)))
 ```
 
-<img width="363" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/3e252b15-b322-415a-b80b-79e90753fe56">
 
-
-
-### Function 3
+**Function 3**
 
 $$g(x) = x^2 \rightarrow g'(x)=2x \rightarrow g'(x)^2=4x^2 \rightarrow  g'(\dfrac{1}{\lambda})^2=\dfrac{4}{\lambda^2}$$ 
 
@@ -223,10 +213,7 @@ print("Theoretical Variance: " + str(4/(Lambda**4)))
 print("Sample Variance: " + str(round(np.var(series_4,ddof=1),3)))
 ```
 
-<img width="368" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/9ee4e78c-e2ac-4889-ad3a-da42498208a5">
-
-
-
+[See results hereTBD.]()
 
 
 
