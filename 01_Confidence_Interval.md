@@ -162,7 +162,7 @@ temp.iloc[:,0] = ['conservative','solve','plugin']
 temp.iloc[:,1] = list(true_value_in_ci.mean())
 temp
 ```
-<img width="353" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/d5fe3f0f-d06f-448b-81b5-f9f55ddeea87">
+<img width="353" alt="image" src="https://github.com/houzhj/Statistics/blob/main/images/01_ci_01.png">
 
 Comparing the width of the confidence intervals derived using different methods
 ```python
