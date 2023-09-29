@@ -48,37 +48,15 @@ We can use three solutions to get a confidence interval based on known informati
 
 ## Part 3 - Examples from different distributions
 Now consider a few examples from different distributions.
-## Example A - Bernoulli Distribution
+### Example A - Bernoulli Distribution
 $$X \sim Ber(p), \hat{p} = \overline{X}$$
 
-By central limit theorem, $\sqrt{n}(\overline{X}-p) \rightarrow N(0,p(1-p))$. 
-
-The confidence interval can be written as 
-$$\overline{X} \pm q_{1-\alpha/2} \dfrac{\sqrt{p(1-p)}}{\sqrt{n}}$$
-1. **Conservative Bound**:
-   
-   Since $\sqrt{p(1-p)}\leq\sqrt{0.5(1-0.5)}=0.5$ when $p \in (0,1)$, we have
-   $$CI_{cons} = \overline{X} \pm q_{1-\alpha/2}\dfrac{0.5}{\sqrt{n}}$$
-   
-2. **Solve**
-
-   According to the following derivation
-   $$\overline{X} - q_{1-\alpha/2} \dfrac{\sqrt{p(1-p)}}{\sqrt{n}} \leq  p \leq \overline{X} + q_{1-\alpha/2} \dfrac{\sqrt{p(1-p)}}{\sqrt{n}}$$
-   $$\downarrow$$
-   $$- q_{1-\alpha/2} \dfrac{\sqrt{p(1-p)}}{\sqrt{n}} \leq  p-\overline{X} \leq  + q_{1-\alpha/2} \dfrac{\sqrt{p(1-p)}}{\sqrt{n}}$$
-   $$\downarrow$$
-   $$(p-\overline{X})^2 \leq  \left( q_{1-\alpha/2} \dfrac{\sqrt{p(1-p)}}{\sqrt{n}}\right)^2$$
-   $$\downarrow$$
-   $$Ap^2+Bp+c \leq 0$$
-   where
-   $$A=1+\dfrac{(q_{1-\alpha/2})^2}{n}, B=-2\overline{X}-\dfrac{(q_{1-\alpha/2})^2}{n}, C=(\overline{X})^2$$
-   $$\downarrow$$
-   $$CI_{solve} = \left( \dfrac{-B \pm \sqrt{B^2-4AC}}{2A} \right)$$
-
-3. **Plug-in**
-   Given that $\hat{p}=\overline{X}$
-   $$CI_{plug-in} = \overline{X} \pm q_{1-\alpha/2} \dfrac{\sqrt{\hat{p}(1-\hat{p})}}{\sqrt{n}} =\overline{X} \pm q_{1-\alpha/2} \dfrac{\sqrt{\overline{X}(1-\overline{X})}}{\sqrt{n}}$$
-
+The three confidence intervals are
+ - $CI_{cons} = \overline{X} \pm q_{1-\alpha/2}\dfrac{0.5}{\sqrt{n}}$
+ 
+  - $CI_{solve} = \left( \dfrac{-B \pm \sqrt{B^2-4AC}}{2A} \right)$, where $A=1+\dfrac{(q_{1-\alpha/2})^2}{n}, B=-2\overline{X}-\dfrac{(q_{1-\alpha/2})^2}{n}, C=(\overline{X})^2$
+ 
+  - $CI_{plug-in} =\overline{X} \pm q_{1-\alpha/2} \dfrac{\sqrt{\overline{X}(1-\overline{X})}}{\sqrt{n}}$
 
 Now, calculate the three types of confidence intervals using simulated data. Assume the true value of p is 0.6 (this information is unknown in reality, so it will be used in the derivation of confidence interval). Consider a level 90% for Confidence Intervals (i.e. $\alpha$=10%)
 
@@ -165,9 +143,6 @@ temp.iloc[:,1] = list(true_value_in_ci.mean())
 temp
 ```
 
-![](notes/Images/MathematicalBasis.png)
-
-
 Comparing the width of the confidence intervals derived using different methods
 ```python
 ci_results['conservative_range'] = ci_results['conservative_r'] -ci_results['conservative_l'] 
@@ -191,30 +166,14 @@ In all experiments, "plugin" CIs are the narrowest.
 ## Example B - Exponential Distribution
 $$X \sim Exp(\lambda), \hat{\lambda} = \dfrac{1}{\overline{X}}$$
 
-By central limit theorem and delta method, $\sqrt{n}(\dfrac{1}{\overline{X}}-\lambda) \rightarrow N(0,\lambda^2)$. 
+The three confidence intervals are
+- $CI_{cons} = (-\infty,\infty)$
+ 
+- $CI_{solve} = \left (\dfrac{1}{\overline{X}} \left( 1+ \dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)^{-1}, \dfrac{1}{\overline{X}}\left(1-\dfrac{q_{1+\alpha/2}}{\sqrt{n}} \right)^{-1} \right)$
+ 
+- $CI_{plug-in} =\left(
+   \dfrac{1}{\overline{X}} \left(1-\dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right) , \dfrac{1}{\overline{X}} \left(1+\dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)\right)$
 
-The confidence interval can be written as 
-$$\dfrac{1}{\overline{X}} \pm q_{1-\alpha/2} \dfrac{\sqrt{\lambda^2)}}{\sqrt{n}} = \dfrac{1}{\overline{X}} \pm q_{1-\alpha/2} \dfrac{\lambda}{\sqrt{n}}$$
-
-1. **Conservative Bound**:
-   
-   $\lambda>0$ is not bounded, so 
-   $$CI_{cons} = (-\infty,\infty)$$
-   
-2. **Solve**
-
-   According to the following derivation
-   $$\hat{\lambda} - q_{1-\alpha/2} \dfrac{\lambda}{\sqrt{n}} \leq  \lambda \leq \hat{\lambda} + q_{1-\alpha/2} \dfrac{\lambda}{\sqrt{n}}$$
-   $$\downarrow$$
-   $$\lambda \geq \hat{\lambda} \left( 1+ \dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)^{-1},\lambda \leq \hat{\lambda} \left(1-\dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)^{-1}$$
-   $$\downarrow$$
-   $$CI_{solve} = \left (\hat{\lambda} \left( 1+ \dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)^{-1}, \hat{\lambda} \left(1-\dfrac{q_{1+\alpha/2}}{\sqrt{n}} \right)^{-1} \right)
-   = \left (\dfrac{1}{\overline{X}} \left( 1+ \dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)^{-1}, \dfrac{1}{\overline{X}}\left(1-\dfrac{q_{1+\alpha/2}}{\sqrt{n}} \right)^{-1} \right)$$
-
-3. **Plug-in**
-   Given that $\hat{/lambda}=\dfrac{1}{\overline{X}}$
-   $$CI_{plug-in} = \dfrac{1}{\overline{X}} \pm q_{1-\alpha/2} \dfrac{\hat{\lambda}}{\sqrt{n}}=\left(
-   \dfrac{1}{\overline{X}} \left(1-\dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right) , \dfrac{1}{\overline{X}} \left(1+\dfrac{q_{1-\alpha/2}}{\sqrt{n}} \right)\right)$$
 
 Then calculate the three types of confidence intervals using simulated data. Assume the true value of $\lambda$ is 3. Consider a level 90% for Confidence Intervals (i.e. $\alpha$=10%). The codes are similar with those for Example A.
 
@@ -283,8 +242,6 @@ for i in range(n_experiment):
 
 Percentage of the experiments in which the true parameter falls within the confidence intervals
 
-<img width="353" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/0b0383bc-2ce6-4afa-9875-570cfed3be6b">
-
 
 ```python
 temp = pd.DataFrame(columns=['method','% of true parameter falls within CI'])
@@ -309,45 +266,17 @@ ci_results.head().round(4)
 
 In all experiments, "plugin" CIs are the narrowest.
 
-<img width="907" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/6c9b7028-e6fb-4008-a1f5-cd419e236e62">
-
-
-
 
 ## Example C - Gamma Distribution
 $$X \sim Gamma(\alpha,1/\alpha), \hat{\alpha} = \sqrt{\overline{X}}$$
 Note that there is a simplified setting that $\beta = 1/\alpha$, which is not necessarioy the case. So there is only one unknown parameter.
 
-By central limit theorem and delta method, $\sqrt{n}(\sqrt{\overline{X}}-\alpha) \rightarrow N(0,\alpha/4)$. 
-
-The confidence interval can be written as (let $q=q_{1-\alpha/2}$ to avoid two duplicated $\alpha$)
-$$\sqrt{\overline{X}} \pm q \dfrac{\sqrt{\alpha/4}}{\sqrt{n}} = \sqrt{\overline{X}} \pm \dfrac{q\sqrt{\alpha}}{2\sqrt{n}}$$
-
-1. **Conservative Bound**:
-   
-   $\alpha>0$ is not bounded, so 
-   $$CI_{cons} = (-\infty,\infty)$$
-   
-2. **Solve**
-
-   According to the following derivation
-   $$\sqrt{\overline{X}} - \dfrac{q\sqrt{\alpha}}{2\sqrt{n}} \leq \alpha \leq \sqrt{\overline{X}} + \dfrac{q\sqrt{\alpha}}{2\sqrt{n}}$$
-   $$\downarrow$$
-   $$\alpha - \sqrt{\overline{X}} \leq \dfrac{q\sqrt{\alpha}}{2\sqrt{n}}$$
-   $$\downarrow$$
-   $$\left( \alpha - \sqrt{\overline{X}} \right)^2  \leq \left( \dfrac{q\sqrt{\alpha}}{2\sqrt{n}} \right) ^2 = \dfrac{q^2\alpha}{4n}$$
-   $$\downarrow$$
-   $$Ap^2+Bp+c \leq 0$$
-   where
-   $$A=1, B=-2\sqrt{\overline{X}}-\dfrac{q^2}{4n}, C=\overline{X}$$
-   $$\downarrow$$
-   $$CI_{solve} = \left( \dfrac{-B \pm \sqrt{B^2-4AC}}{2A} \right)$$
-
-   
-3. **Plug-in**
-   
-   Given that $\hat{\lambda}=\dfrac{1}{\overline{X}}$
-   $$CI_{plug-in} = \sqrt{\overline{X}} \pm \dfrac{q \sqrt{\hat{\alpha}}}{2\sqrt{n}} = \sqrt{\overline{X}} \pm \dfrac{q\sqrt{\sqrt{\overline{X}}}}{2\sqrt{n}}$$
+The three confidence intervals are
+- $CI_{cons} = (-\infty,\infty)$
+ 
+- $CI_{solve} = \left( \dfrac{-B \pm \sqrt{B^2-4AC}}{2A} \right)$ where $A=1, B=-2\sqrt{\overline{X}}-\dfrac{q^2}{4n}, C=\overline{X}$
+ 
+- $CI_{plug-in} = \sqrt{\overline{X}} \pm \dfrac{q\sqrt{\sqrt{\overline{X}}}}{2\sqrt{n}}$
 
 Then calculate the three types of confidence intervals using simulated data. Assume the true value of $\alpha$ is 3. Consider a level 90% for Confidence Intervals (i.e. $\alpha$=10%). The codes are similar with those for Example A and Example B.
 
@@ -427,7 +356,6 @@ temp.iloc[:,0] = ['conservative','solve','plugin']
 temp.iloc[:,1] = list(true_value_in_ci.mean())
 temp
 ```
-<img width="346" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/145ab8c5-6cea-40fa-9845-2bb53e1a9cd5">
 
 Comparing the width of the confidence intervals derived using different methods
 ```python
@@ -444,10 +372,3 @@ ci_results.head().round(4)
 ```
 
 In all experiments, "plugin" CIs are the narrowest.
-
-<img width="891" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/c8fcfeea-acc0-47df-9e1e-b126d884eded">
-
-
-
-
-
