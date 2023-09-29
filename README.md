@@ -7,7 +7,7 @@ These studies are about various topics in statistics, including mathematical der
 - [Estimations and Confidence Interval](https://github.com/houzhj/Statistics/blob/main/Topics/01_Confidence_Interval.md)
   - Three methods to calculate the confidence interval of a parameter: Conservative, Solve, Plug-in.
   - Using simulation to conduct and compare the three methods.
-- [Delta Method](https://github.com/houzhj/Statistics/blob/main/01_Delta_Method.md)
+- [Delta Method](https://github.com/houzhj/Statistics/edit/main/Topics/01_Delta_Method.md)
   - Calculate the variance of a random variable (which is a function of another random variables with known distribution).
   - Compare the theoretical variance (based on the Delta method) with the simulation-based variances.
 - Bayes Estimate
