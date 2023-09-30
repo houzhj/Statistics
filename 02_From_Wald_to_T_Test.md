@@ -57,8 +57,8 @@ However, when n is small (for example 2 or 3), this statistic does not work well
   - $W = \dfrac{\sqrt{n}(\overline{X}-p_0)}{\sqrt{\overline{X}(1-\overline{X})}}=\dfrac{\sqrt{2}(0.5-p_0)}{\sqrt{0.5(1-0.5))}}=2\sqrt{2}(0.5-p_0)$.
   - Prob(Case 3) = $2p(1-p)$  
 
-It can be seen that the probability of Type 1 error is high (>50\%) if we use the Wald statistics, regardless of the critical value and the value in $H_0$:
-$P(W=\infty |p=p_0) = (1-p_0)^2+p_0^2 \geq 0.5$.
+It can be seen that the probability of Type 1 error is high (>50\%) if we use the Wald statistics, regardless of the significant level and $p_0$: 
+$$P(W=\infty |p=p_0) = (1-p_0)^2+p_0^2 \geq 0.5$$
 
 ### When the sample size is 3
 - Case 1: $\overline{X} = 0 \rightarrow X_1=0=X_2=X_3=0$,
@@ -73,7 +73,8 @@ $P(W=\infty |p=p_0) = (1-p_0)^2+p_0^2 \geq 0.5$.
   - $W = \dfrac{\sqrt{n}(\overline{X}-p_0)}{\sqrt{\overline{X}(1-\overline{X})}}$.
   - Prob(Case 3) = $1-p^3-(1-p)^3$  
 
-It can be seen that the probability of Type 1 error is high (>25\%) if we use the Wald statistics, regardless of the critical value and the value in $H_0$: $P(W=\infty |p=p_0) = (1-p_0)^3+p_0^3 \geq 0.25$.
+It can be seen that the probability of Type 1 error is high (>25\%) if we use the Wald statistics, regardless of the significant level and $p_0$: 
+$$P(W=\infty |p=p_0) = (1-p_0)^3+p_0^3 \geq 0.25$$.
 
 
 ## 2.2 - Simulation Analysis for Wald Tests in Bernoulli distribution 
@@ -145,6 +146,8 @@ The output is a list containing 1000 numbers (only a small portion of the result
 |  1.549193338482967  |
 
 ### Experiment A. Very small sample size
+[The codes for this experiment is here]()
+
 Three sample size are considered in the simulation analysis: 2,5,and 30. 
 
 #### One-sided tests
@@ -166,12 +169,6 @@ for s in [2,5,30]:
     plt.legend()
     plt.show()
 ```
-<img width="350" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/a0f7311f-3c2e-45ac-a7af-1869f7196802">
-
-<img width="352" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/2c9c25d4-e61c-42ea-b4f9-d3b6c0b62049">
-
-<img width="369" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/bb28e725-668d-4b85-b522-287e236bffd4">
-
 
 #### Two-sided tests
 Now, the null hypothesis is $H_0 = 0.4$. Again, when the sample size is 2 or 5, the distribution of the $W$ statistic is not appropriate for testing. When the sample size
@@ -187,27 +184,27 @@ for s in [2,5,30]:
     plt.show()
 ```
 
-<img width="353" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/4a52ff29-6d9d-4f32-8639-d476e79e6619">
-
-<img width="352" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/6ca7d7cb-8430-4608-bde9-dd6cafe82e61">
-
-<img width="362" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/2f44ce18-5250-46a1-8b97-691b191404ba">
-
-
 ### Experiment B. Changing null hypothesis with fixed sample size(n=50)
+[The codes for this experiment is here]()
+
 Next assume we have a reasonable sample size, say 50. In this experiment, we consider different values of $p_0$. 
 
-The "reject" or "do not reject" decision is according to the following reject region, and p-values, which depend on the type of tests (one-sided or two-sided).
+Assume the significant level is 0.05 in all cases. The "reject" or "do not reject" decision is according to the following reject regions and p-values, which depend on the type of tests (one-sided or two-sided).
 
-  <img width="593" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/a9e7b9d4-690d-4a3b-b843-a1054d0f4e8c">
+**For two-sided test $H_0: \theta=\theta_0, H_1: \theta \ne \theta_0$**
+- Reject if $|W^{obs}|>q_{\alpha/2}$
+- p-value = $P(|W| >|W^{obs}|)$
 
-Note that for one-sided tests, 
-$$W = \dfrac{\sqrt{n}(\overline{X}-p_0)}{\sqrt{\overline{X}(1-\overline{X})}}$$
+**For one-sided test $H_0: \theta \leq \theta_0, H_1: \theta > \theta_0$**
+- Reject if $W^{obs}>q_{\alpha}$
+- p-value = $P(W > W^{obs})$
 
-for two-sided tests, 
-$$W = \left| \dfrac{\sqrt{n}(\overline{X}-p_0)}{\sqrt{\overline{X}(1-\overline{X})}}\right|$$
 
-Assume the significant level is 0.05 in all cases. 
+**For one-sided test $H_0: \theta \geq \theta_0, H_1: \theta < \theta_0$**
+- Reject if $W^{obs}<-q_{\alpha}$
+- p-value = $P(W < W^{obs})$
+
+Note that for one-sided tests, $W = \dfrac{\sqrt{n}(\overline{X}-p_0)}{\sqrt{\overline{X}(1-\overline{X})}}$; and for two-sided tests, $W = \left| \dfrac{\sqrt{n}(\overline{X}-p_0)}{\sqrt{\overline{X}(1-\overline{X})}}\right|$
 
 #### One-sided tests
 The code below obtain $W$ statistics through 1000 experiments for each of the followng one-sided tests
@@ -247,14 +244,13 @@ for h in range(len(h0_list)):
     plt.legend()
     plt.show()
 ```
-The results are shown below. It can be seen the third test, where h0 equals to the true value of $p=0.4$, the probability of Type 1 Error is close to the pre-specified level of the test (i.e., $\alpha$=5\%)
-
-<img width="243" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/9c0a047d-155d-4532-9e27-01ae439a964a">
-
-$$$$
-The following histograms visualize the results (the $H_0 \leq 0.2$ and $H_0 \leq 0.4$ plots are presented as examples). 
-
-<img width="787" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/71b3caf2-6dfc-45e8-be21-a038405b3a9d">
+|     h0 | Reject_Rate |         Error |
+|-------:|------------:|--------------:|
+| p<=0.2 |       0.898 | Type 2: 0.102 |
+| p<=0.3 |       0.438 | Type 2: 0.562 |
+| p<=0.4 |       0.057 | Type 1: 0.057 |
+| p<=0.5 |       0.001 | Type 1: 0.001 |
+| p<=0.6 |       0.000 | Type 1: 0.000 |
 
 #### Two-sided tests
 The code below obtain $W$ statistics through 1000 experiments for each of the followng two-sided tests
@@ -294,16 +290,18 @@ for h in range(len(h0_list)):
     plt.show()
 ```
 
-The tables show the rejection rate (among the 1000 experiments) for each tests. Recall that the pre-specifeid true $p=0.4$, so only the $H_0$ is in the third 3 is true. It can be seen the Test 3, where h0 equals to the true p (critical point), the type 1 error is close to the pre-specified level of the test (i.e., $\alpha$=5\%).
+|     h0 | Reject_Rate |         Error |
+|-------:|------------:|--------------:|
+| p<=0.2 |       0.898 | Type 2: 0.102 |
+| p<=0.3 |       0.438 | Type 2: 0.562 |
+| p<=0.4 |       0.057 | Type 1: 0.057 |
+| p<=0.5 |       0.001 | Type 1: 0.001 |
+| p<=0.6 |       0.000 | Type 1: 0.000 |
 
-<img width="226" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/40b95430-4e8a-4ed4-9536-fd841751c7c5">
-
-The following histograms visualize the results (the $H_0 = 0.4$ and $H_0 = 0.6$ plots are presented as examples). 
-
-<img width="398" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/83788f73-94bc-4b9e-a43b-ccfc4df33a88">
-<img width="402" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/f3a4deb9-6edb-45d3-8058-070699d32ee4">
 
 ### Experiment C. Changing the sample size
+[The codes for this experiment is here]()
+
 Now consider the impact of sample size. 
 - We fixed the significant level of the test at 5\%.
 - Consider 4 choices of sample size: 30, 50, 100, 500
@@ -339,8 +337,12 @@ summary_table
 ```
 The results shows that increasing the sample size from 30 to 500 does not significantly reduct the probability of Type 1 error.
 
-<img width="269" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/6fccd820-01af-4783-b085-0b6728fda6f7">
-
+| sample_size | Reject_Rate |         Error |
+|------------:|------------:|--------------:|
+|          30 |       0.078 | Type 1: 0.078 |
+|          50 |       0.049 | Type 1: 0.049 |
+|         100 |       0.059 | Type 1: 0.059 |
+|         500 |       0.054 | Type 1: 0.054 |
 
 The following codes conduct the simulation analysis for $H_0: p=0.5, H_1: p \ne 0.5$. 
 
@@ -370,8 +372,12 @@ for s in range(len(sample_size_list)):
 summary_table
 ```
 The results shows that increasing sample size (from 30 to 500) improves the power of a test.
-
-<img width="264" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/bde95a40-d3f9-49b9-b60f-47909e76e28d">
+| sample_size | Reject_Rate |         Error |
+|------------:|------------:|--------------:|
+|          30 |       0.164 | Type 2: 0.836 |
+|          50 |       0.350 | Type 2: 0.650 |
+|         100 |       0.553 | Type 2: 0.447 |
+|         500 |       0.997 | Type 2: 0.003 |
 
 If we consider a null hypothesis using a value more close to but not equal to 0.4, a larger sample size will be needed to get a test with high power.
 Consider the test $H_0: p = 0.41$.
@@ -392,33 +398,20 @@ summary_table
 
 As shown in the table below, the Type 2 error rate is higher than 10\% until the sample size increases to 30000.
 
-<img width="273" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/5e899f8b-7bac-4b44-a475-82ba01d46dbf">
+| sample_size | Reject_Rate |     Error     |
+|:-----------:|:-----------:|:-------------:|
+|      30     |    0.069    | Type 2: 0.931 |
+|      50     |    0.072    | Type 2: 0.928 |
+|     100     |    0.056    | Type 2: 0.944 |
+|     500     |    0.069    | Type 2: 0.931 |
+|     5000    |    0.259    | Type 2: 0.741 |
+|    10000    |    0.499    | Type 2: 0.501 |
+|    20000    |    0.806    | Type 2: 0.194 |
+|    30000    |    0.939    | Type 2: 0.061 |
 
 
 ## Part 3 - Examples with Normal distribution 
-Consider the Wald test for the mean of a $N(\mu,\sigma^2)$ distribution. As discussed above, the Wald test statistic is
-$$W = \dfrac{\hat{\mu}-\mu}{\sqrt{var(\hat{\mu})}} = \dfrac{\hat{\mu}-\mu_0}{se(\hat{\mu})}$$
-
-The maximum likelihood estimate of $\mu$ is 
-$$\hat{\mu} = \overline{X}$$
-and the sample variance of $\hat{mu}$ is 
-$$\widehat{Var}(\hat{\mu}) =\widehat{Var}(\overline{X}) = \widehat{Var}\left(\dfrac{1}{n} \sum_{i=1}^n X_i \right) =\dfrac{1}{n^2}\widehat{Var}\left(\sum_{i=1}^n X_i  \right)=\dfrac{1}{n^2}\times n \times \widehat{Var}(X_i) $$
-
-$$ = \dfrac{1}{n}\widehat{Var}(\sigma^2) = \dfrac{1}{n} \times \left[\dfrac{1}{n-1}\sum_{i=1}^n \left(X_i-\overline{X}\right)^2\right] =\dfrac{1}{n} s_n^2$$
-
-It can be proved (shown below) that $s_n^2$ is an unbiased estimator or $\sigma_2$, i.e., $E(s^2)=\sigma^2$
-
-#### Proof:
-$$E(s^2) = E\left[ \dfrac{1}{n-1}\sum_{i=1}^n \left(X_i-\overline{X}\right)^2   \right] = \dfrac{1}{n-1}E\left[ \sum_{i=1}^n X_i^2 +n(\overline{X})^2 - 2 \sum_{i=1}^n X_i \overline{X}\right]$$
-$$ =\dfrac{1}{n-1}E\left[ \sum_{i=1}^n X_i^2 -n(\overline{X}^2) \right]= \dfrac{1}{n-1} \left[ nE(X_i^2)-nE(\overline{X}^2)\right]$$
-
-$$ = \dfrac{n}{n-1} \left( \left[E(X_i)^2+Var(X_i)\right]-   \left[E(\overline{X})^2+Var(\overline{X})\right]   \right)  $$
-
-$$ = \dfrac{n}{n-1} \left[  \left(\mu^2+\sigma^2\right)-\left(\mu^2 + \dfrac{1}{n}\sigma^2\right)  \right] = \dfrac{n}{n-1} \left( \dfrac{n-1}{n}\sigma^2\right)=\sigma^2$$
-
-### QED
-
-So the $W$ statistic in a given sample is calculated as 
+Consider the Wald test for the mean of a $N(\mu,\sigma^2)$ distribution. The $W$ statistic in a given sample is calculated as 
 $$W =  \dfrac{\hat{\mu}-\mu}{\sqrt{\widehat{var}(\hat{\mu})}} = \dfrac{\hat{\mu}-\mu}{\sqrt{s_n^2/n}} = \dfrac{\sqrt{n}(\hat{\mu}-\mu)}{\sqrt{s_n^2/n}}$$
 where 
 $$s_n^2 = \dfrac{1}{n-1} \sum_{i=1}^n \left( X_i-\overline{X}\right)^2$$
@@ -426,7 +419,7 @@ $$s_n^2 = \dfrac{1}{n-1} \sum_{i=1}^n \left( X_i-\overline{X}\right)^2$$
 Under $H_0: \mu = \mu_0$, and $n$ is large enough 
 $$W \rightarrow \dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1)$$
 
-
+[see derivations here](https://github.com/houzhj/Statistics/blob/main/Math/02_f_w_t_t_02.md)
 
 
 
