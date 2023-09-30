@@ -1,13 +1,4 @@
 # Two Sample Mean Tests
-### The contents of this note
-- **111**
-- **222**
-
-
-$$$$
-
-$$$$
-
 
 Consider two random variables $X$ and $Y$. 
 $$E(X) = \mu_1, Var(X) = \sigma_1^2$$
@@ -22,16 +13,25 @@ Consider the hypothesis testing
 $$H_0: \mu_1 = \mu_2$$
 $$H_1: \mu_1 \ne \mu_2$$
 
-## The goal of this study is to conduct and compare several two-sample tests (introduced below) under different scenarios
+**The goal of this study is to conduct and compare several two-sample tests (introduced below) under different scenarios**
 - Equal/unequal sample size
 - Equal/unequal variance
 - The true mean of X and Y, could be either same ($H_0$ is true, rejection is related to Type 1 Error), or different ($H_0$ is false, rejection is related to Type 2 error)
 
+### The contents of this note
+- **Several two-sample tests in the literature**
+- **Codes for comparing the two-sample tests by simulation analysis**
+- **Results of the simulation-based analysis**
 
-# 1. Several two-sample tests in the literature
-There are multiple two-sample tests in the literature. The derivations of the test statistics and the distribution of these statistics under the null hypothesis are not discussed. The links and the snapshots are from [the article about Student's t-test in wikipedia](https://en.wikipedia.org/wiki/Student%27s_t-test). 
+$$$$
 
-## (1) Wald test
+$$$$
+
+
+## Part 1 - Several two-sample tests in the literature
+There are multiple two-sample tests in the literature. The derivations of the test statistics and the distribution of these statistics under the null hypothesis are not discussed. The links are from [the article about Student's t-test in wikipedia](https://en.wikipedia.org/wiki/Student%27s_t-test). 
+
+### (1) Wald test
 Equivalently, let $\theta = \mu_X - \mu_Y$, the hypothesis test can be rewritten as
 $$H_0: \theta = 0 $$
 $$H_1: \theta \ne 0 $$
@@ -63,11 +63,8 @@ def wald_ts(data_x,data_y):
     return ts,reject
 ```
 
-## (2) t test 1 - Equal sample sizes and variance
+### (2) t test 1 - Equal sample sizes and variance
 #### [link](https://en.wikipedia.org/wiki/Student%27s_t-test#Equal_sample_sizes_and_variance)
-
-#### Snapshot
-<img width="962" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/337be7c1-8708-44c7-a7b4-785f15cbca24">
 
 The codes below conduct this test. 
 ```python
@@ -88,11 +85,8 @@ def t_ts_1(data_x,data_y):
     return ts,reject
 ```
 
-## (3) t test 2 - Equal or unequal sample sizes, similar variances
+### (3) t test 2 - Equal or unequal sample sizes, similar variances
 #### [link](https://en.wikipedia.org/wiki/Student%27s_t-test#Equal_or_unequal_sample_sizes,_similar_variances_(1/2_%3C_sX1/sX2_%3C_2))
-
-#### Snapshot
-<img width="953" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/3bf8f6c9-87f5-4642-b5c2-89e66c7f0b92">
 
 The codes below conduct this test. 
 ```python
@@ -113,11 +107,8 @@ def t_ts_2(data_x,data_y):
     return ts,reject
 ```
 
-## (4) t test 3 - Equal or unequal sample sizes, unequal variances
+### (4) t test 3 - Equal or unequal sample sizes, unequal variances
 #### [link](https://en.wikipedia.org/wiki/Student%27s_t-test#Equal_or_unequal_sample_sizes,_unequal_variances_(sX1_%3E_2sX2_or_sX2_%3E_2sX1))
-
-#### Snapshot
-<img width="966" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/b0d8e426-6ed5-40de-8451-f0254d15a361">
 
 The codes below conduct this test. 
 ```python
@@ -140,7 +131,7 @@ def t_ts_3(data_x,data_y):
 ```
 
 
-# 2. Code - comparing the two-sample tests by simulation analysis
+## Part 2 - Codes for comparing the two-sample tests by simulation analysis
 
 The function below performs a two sample mean test, given that
 - The two random variables $X$ and $Y$ both follow Normal distribution.
@@ -193,7 +184,18 @@ $$Y \sim N(5,2), n_2 = 20$$
 
 If we conduct the "t_ts_1" method (i.e., t tests with equal sample sizes and variance, see above) 1000 times, we have the following results. Note that in this case, $\mu_1 \ne \mu_2$, so $H_0: \mu_1 = \mu_2$ is false, and failing to reject leads to a Type 2 error. 
 
-<img width="325" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/706ea052-5664-448d-a57d-bdb4f811fb42">
+|    ts    | reject |
+|:--------:|:------:|
+| 1.293599 |    0   |
+|  2.05337 |    1   |
+| 3.908962 |    1   |
+|    ...   |   ...  |
+| 4.529527 |    1   |
+| 2.996447 |    1   |
+
+| size_x | size_y |   h0  | type_2_error |
+|:------:|:------:|:-----:|:------------:|
+|   40   |   20   | False |     0.249    |
 
 $$$$
 
@@ -256,7 +258,10 @@ In this example, we considered two combinations of sample sizes of $X$ and $Y$, 
   -  $X \sim N(6,2)$, $Y \sim N(5,3)$. In this case, the $H_0$ is false.
 Then we conduct the Wald test analysis, using function two_sample_test() for each of the four combinations. 
 
-<img width="568" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/d1f2de93-431e-4153-aef6-f0f4ff41dcc2">
+| size_x | size_y | type_1_error | type_2_error | x_var | y_var | sample size | variance |  method |
+|:------:|:------:|:------------:|:------------:|:-----:|:-----:|:-----------:|:--------:|:-------:|
+|   10   |   10   |     0.062    |     0.640    |   2   |   3   |   Unequal   |  Unequal | wald_ts |
+|   20   |   30   |     0.062    |     0.383    |   2   |   3   |   Unequal   |  Unequal | wald_ts |
 
 Interpretation of the results
 - The first row is for $n_1=10$, $n_2=10$. The second row is for $n_1=20$, $n_2=30$.
@@ -266,8 +271,11 @@ Interpretation of the results
 - Column 'variance' is 'unequal' becasue 'sigma_2_x'=2, 'sigma_2_y'=3,
 
 
-# 3. Results of the simulation-based analysis
-Consider the following cases
+## Part 3 - Results of the simulation-based analysis
+[The Python codes and the results can be found here TBD]()
+
+
+Consider the following cases.
 ## Case 1: Equal variance, equal sample size
 $X \sim N(\mu_1, 2), Y \sim N(\mu_2, 2)$
 
@@ -293,15 +301,6 @@ plt.title('Equal sample size, equal variance')
 plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
 plt.show()
 ```
-
-<img width="783" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/d932ccc7-eb94-4d25-aed8-171309b5390b">
-
-The results are presented in a scatterplot, with different colors representing different testing methods, and the diameters of the point representing different sample sizes. The points close to the left bottom corner (the origin point) represent better tests (smaller probabilities of both Type 1 error and small Type 2 error). The results show that 
-- Larger points (when sample sizes are larger) are closer to the left bottom corner.
-- When the sample sizes are smaller, the Type 2 Error rates for all the methods are larger.
-- There is no method that is clearly superior to other methods in terms of the power.
-- The t-tests have better significant level than the Wald test. 
-
 
 ## Case 2: Unequal variance, equal sample size
 $X \sim N(\mu_1, 2), Y \sim N(\mu_2, 3)$
@@ -329,9 +328,6 @@ plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
 plt.show()
 ```
 
-<img width="781" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/d36fc175-aff4-4f6d-b284-c1e3eec6226b">
-
-
 ## Case 3: Equal variance, unequal sample size
 $X \sim N(\mu_1, 2), Y \sim N(\mu_2, 2)$
 
@@ -357,8 +353,6 @@ plt.title('Equal sample size, unequal variance')
 plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
 plt.show()
 ```
-<img width="779" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/0f2e9394-2a19-477e-8329-65570d347a23">
-
 
 ## Case 4: Unequal variance, unequal sample size
 $X \sim N(\mu_1, 2), Y \sim N(\mu_2, 3)$
@@ -385,13 +379,3 @@ plt.title('Unequal sample size, unequal variance')
 plt.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)
 plt.show()
 ```
-<img width="781" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/ec59939b-afec-48bc-a9b9-38ae432ba21d">
-
-
-
-
-
-
-
-
-
