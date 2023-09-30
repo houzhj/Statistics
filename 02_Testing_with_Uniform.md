@@ -1,13 +1,4 @@
 # Hypothesis Testing Example with a Uniform Distribution
-### The contents of this note
-- **111**
-- **222**
-
-
-$$$$
-
-$$$$
-
 
 Consider a hypothesis testing with a random variable $X \sim U[a,b]$, with 
 $$H_0: b = c$$
@@ -24,7 +15,19 @@ $$X_{(1)} \leq ... \leq X_{(n)} \leq c$$
 
 As discussed [here](https://github.com/houzhj/Statistics/blob/main/02_Wald_LR_Tests.md), the Wald Test and the Likelihood Ratio Test (both are maximum-likelihood-based tests) can not be directly applied for uniform distribution. The purpose of this study is to investegate alternative testing methods. 
 
-## 1. Test Statistic
+### The contents of this note
+- **Test Statistic**
+- **Rejection Region**
+- **Type 1 and Type 2 Error**
+- **Applications**
+  - **Calculating the significant level of a given test**
+  - **Finding the rejection region with a target significant level**
+
+$$$$
+
+$$$$
+
+## Part 1 - Test Statistic
 The maximum likelihood estimator of the upper bound parameters $b$ can be derived as below. 
 
 The likelihood function
@@ -44,7 +47,7 @@ So any test we could do might involve the test statistic $\hat{b}=X_{(n)}$. Let'
 
 $$T_n = X_((n))$$ 
 
-## 2. Rejection Region
+## Part 2 - Rejection Region
 The reject region $R$ is defined so that the decision is to reject $H_0$ if $T_n = X_{(n)} \in R$. Consider the rejection region defined by a scalar $r$, reject the null hypothesis $H_0: b=c$ if
 $$T_n \in [a,c]$$
 
@@ -52,7 +55,7 @@ Note that we must have $a < r < c$, otherwise the test is logical meaningless.
 - If we chose $r < a$: it is impossible that the maximum of $X_1,...,X_n$ is smaller than a number that is smaller than the lower bound $a$. I.e., the null hypothesis will always be rejected. 
 - If we chose $r > c$: the null hypothesis will be rejected if we observed $X_{(n)}$ that is greated than $r$, which is greater than $c$. In this case we can conclude that the null hypothesis is true withtout any statistical testing, and the test is essentially unnecessary.  
 
-## 3. Type 1 and Type 2 Error
+## Part 3 - Type 1 and Type 2 Error
 The probability of Type 1 and Type 2 Error of this tests can be expressed by functions of known variables ($a,r,c,n$). In specific
 - $a$: the lower bound of the uniform distribution
 - $r$: the scalar that defines the reject region, reject the $H_0$ if $T_n = X_{(n)} \in [a,r]$
@@ -79,7 +82,7 @@ $$\geq P[ (a < X_1 < r) | b = c) \cap (a < X_2 < r) | b = c) \cap ... \cap (a < 
 
 $$ =  \left(\dfrac{r-a}{c-a} \right)^n$$
 
-## 4. Applications
+## Part 4 - Applications
 We can use these conclusions to 
 - calculate the significant level of a test, or
 - design a test(i.e., finding the rejection region) to achieve a given significant level. 
@@ -92,7 +95,9 @@ Assume we have the following information:
 
 (3) We observe the maximum value among $X_1, ..., X_{10}$. Then we have the hypotheses $H_0: b = c$, $H_1: b < c$. Note that we will only use $c > max(X_1,...,X_{10})$ in the hypotheses, otherwise the test will be meaningless - no one needs to test if $b=4$ after observing the sample maximum at 5. Instead, one might be interested in whether the upper bound parameter is 6.  
 
-### Calculating the significant level of a given test 
+[The Python codes and the results can be found hereTBD]()
+
+### **Application 1: Calculating the significant level of a given test**
 Let's say the lower bound parameter is given: $a=5$. We conduct a test with pre-specified rejection region $[5,9]$, and hypotheses $H_0: b=10$, $H_1: b < 10$,. 
 
 If the maximum in the sample $(n=8)$ is greater then 10, we can direcly conclude that $b>10$ and there is no need to conduct this test. 
@@ -143,11 +148,10 @@ alpha_n_r_analytical
 ```
 
 The simulation-based and the analytical significant levels are compared. In general they are comparable. There are gaps between the numbers in the two tables, probably becasue the number of experiments are not large enough.
+[See results hereTBD]()
 
-<img width="237" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/c9a835b6-9137-466d-a813-1d1042b16251">
-<img width="326" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/667029d2-8cc3-4f82-b129-e6321e62c1bb">
 
-### Finding the rejection region with a target significant level
+### **Application 2: Finding the rejection region with a target significant level**
 
 Again the lower bound parameter is given: $a=5$. We have hypotheses $H_0: b=10$, $H_1: b < 10$, and the target significant level is 5%. The sample includes 8 observations.
 
@@ -181,10 +185,11 @@ for alpha in range(len(alpha_list)):
         r_n_alpha.iloc[alpha,ss+1] = alpha_list[alpha]**(1/sample_size_list[ss])*(h0-a)+a
 r_n_alpha
 ```
-
-The results are 
-
-<img width="354" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/52c663dc-f384-4a8d-bb67-ce3de1606488">
+| alpha values |      n=8 |     n=20 |     n=50 |    n=100 |
+|:------------:|:--------:|:--------:|:--------:|:--------:|
+|         0.01 | 7.811707 | 8.971641 | 9.560054 | 9.774963 |
+|         0.05 |  8.43828 | 9.304458 | 9.709225 | 9.852435 |
+|          0.1 | 8.749471 | 9.456255 | 9.774963 | 9.886186 |
 
 
 #### Checking two cases
@@ -212,8 +217,8 @@ alpha_check
 ```
 As shown, all the 10 values are around 10%
 
-<img width="593" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/82256abb-d00a-46de-b79d-e266bf26d875">
-
+| 0.098 | 0.1  | 0.089 | 0.09 | 0.101 | 0.103 | 0.101 | 0.087 | 0.115 | 0.098 |
+|-------|-----:|------:|-----:|------:|------:|-------|-------|-------|-------|
 
 
 (2) $n=50, r=9.560054$: according to the table, the expected $\alpha$ is 1%.
@@ -239,6 +244,6 @@ alpha_check
 ```
 As shown, all the 10 values are around 1%
 
-<img width="564" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/983e30d5-603c-4dcd-b1c2-98deb153aa70">
-
+| 0.014 | 0.013 | 0.013 | 0.006 | 0.012 | 0.012 | 0.012 | 0.01 | 0.012 | 0.01 |
+|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|:----:|:-----:|:----:|
 
