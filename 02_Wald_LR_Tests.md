@@ -58,7 +58,7 @@ Next, we will perform and compare the Wald tests and the Likelihood Ratio (LR) t
 - **Remark: Note that in this analysis, when we perform data generation and calculate type 1 and type 2 errors, we know the true values of the parameters. This differs from conducting hypothesis tests in real-world scenarios.**
 
 
-## Example 1 - Bernoulli(0.4)
+### Example 1 - Bernoulli(0.4)
 The codes below calculate the Wald test statistic using simulated data
 - This is a distribution specific function. For example, this one is for Bernoulli distribution, meaning the test statistic and data generation are specific for Bernoulli distribution. 
 - One can specifies the sample size
@@ -139,7 +139,7 @@ def wald_lr_compare(sample_size_list,h0,p_true):
             compare_result.loc[ss,'type_2_error_lr']   = error_rate_lr
     return(compare_result)
 ```
-### (1) False Null Hypothesis
+#### (1) False Null Hypothesis
 Let's first consider the following sample sizes: [20,50,100,200,400,1000], and the following null hypotheses (which are false)
 - True value: $p = 0.4$
 - $H_0: p=0.41$, $H_1: p \ne 0.41$
@@ -168,7 +168,7 @@ The results suggest:
 - As the sample size increases, the Type 2 Error (failing to reject a false null hypothesis) decreases.
 - As the values in the false null hypothesis get closer to the true values, a larger sample size is required to reject the null hypothesis.
 
-### (2) True Null Hypothesis
+#### (2) True Null Hypothesis
 Consider the null hypothesis (which is true): $H_0 = 0.4, H_1 \ne 0.4$
 
 ```python
@@ -198,16 +198,16 @@ The plots show that the Type 1 Error rates of these two tests are generally clos
 
 
 
-## Example 2 - Binomial(5,0.4)
+### Example 2 - Binomial(5,0.4)
 A Binomial distribution has two parameters, $K$ and $p$. Let take $K$ as given ($K$=5)
 
 [See results hereTBD]()
 
-## Example 3 - Poisson(5)
+### Example 3 - Poisson(5)
 
 [See results hereTBD]()
 
-## Example 4 - Uniform[0,b]
+### Example 4 - Uniform[0,b]
 Consider a random variable $X \sim U[a,b]$ The maximum likelihood estimator of the upper bound parameter $b$ can be derived as below. 
 
 The likelihood function
@@ -227,11 +227,9 @@ Similiary, $L(a,b)$ is monotonically decreasing with respect to $b$, and $L(a,b)
 
 $$\hat{b}_{MLE} = max(X_1,…,X_n)$$
 
-Technically, these MLEs cannot be used in Wald or LR tests. The test statistics and their distributions under the null hypothesis no longer applies when the true value of the parameter is on the boundary of the parameter space. 
+Technically, these MLEs cannot be used in Wald or LR tests. The test statistics and their distributions under the null hypothesis no longer applies when the true value of the parameter is on the boundary of the parameter space. See https://en.wikipedia.org/wiki/Wilks%27_theorem.
 
-See https://en.wikipedia.org/wiki/Wilks%27_theorem.
-
-To demonstrate, consider the LR test for $b$ (let's assmue $a=0$ and consider $b$ only). We have
+To demonstrate this, consider the LR test for $b$ (let's assmue $a=0$ and consider $b$ only). We have
 
 $$l(a,b) = l(0,b) = -n \times ln(b)$$
 
@@ -282,11 +280,7 @@ def plot_lr_add_chisquare(lr_data,distribution):
     plt.show()
 ```
 
-### Sample size = 10
-- For the hypothesis tests about the parameter in a Poisson distribution, the distribution of the likelihood ratio statistics are close to a Chi-square (1) distribution.
-- For the hypothesis tests about the parameter in a Uniform distribution, the distribution of the likelihood ratio statistics are different from the chi-squared distribution.
-- These observations are observed when the sample size is 50 and 500, as well. 
-- These observations are consistent with expectation. 
+**Sample size = 10**
  
 ```python
 sample_size = 10
@@ -298,7 +292,7 @@ poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
 plot_lr_add_chisquare(poiss_lr,'Poisson')
 ```
 
-### Sample size = 50
+**Sample size = 50**
 ```python
 sample_size = 50
 uniform_lr  = lr_uniform(sample_size=10,h0=10,b_true=10)
@@ -309,7 +303,7 @@ poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
 plot_lr_add_chisquare(poiss_lr,'Poisson')
 ```
 
-### sample size = 500
+**Sample size = 500**
 ```python
 sample_size = 500
 uniform_lr  = lr_uniform(sample_size=10,h0=10,b_true=10)
@@ -319,6 +313,11 @@ sample_size = 500
 poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
 plot_lr_add_chisquare(poiss_lr,'Poisson')
 ```
+The results indicate that
+- For the hypothesis tests about the parameter in a Poisson distribution, the distribution of the likelihood ratio statistics are close to a Chi-square (1) distribution.
+- For the hypothesis tests about the parameter in a Uniform distribution, the distribution of the likelihood ratio statistics are different from the chi-squared distribution.
+- These observations are observed when the sample size is 50 and 500, as well. 
+- These observations are consistent with expectation. 
 [See results hereTBD]()
 
 
