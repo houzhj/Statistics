@@ -199,23 +199,12 @@ The plots show that the Type 1 Error rates of these two tests are generally clos
 
 
 ## Example 2 - Binomial(5,0.4)
-
 A Binomial distribution has two parameters, $K$ and $p$. Let take $K$ as given ($K$=5)
 
-The codes for this and the the following examples can be found [here](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_lr_test.ipynb).
-
-### (1) False Null Hypothesis
-[See results hereTBD]()
-
-### (2) True Null Hypothesis
 [See results hereTBD]()
 
 ## Example 3 - Poisson(5)
 
-### (1) False Null Hypothesis
-[See results hereTBD]()
-
-### (2) True Null Hypothesis
 [See results hereTBD]()
 
 ## Example 4 - Uniform[0,b]
@@ -238,7 +227,9 @@ Similiary, $L(a,b)$ is monotonically decreasing with respect to $b$, and $L(a,b)
 
 $$\hat{b}_{MLE} = max(X_1,…,X_n)$$
 
-Technically, these MLEs cannot be used in Wald or LR tests. The test statistics and their distributions under the null hypothesis no longer applies when the true value of the parameter is on the boundary of the parameter space. See https://en.wikipedia.org/wiki/Wilks%27_theorem.
+Technically, these MLEs cannot be used in Wald or LR tests. The test statistics and their distributions under the null hypothesis no longer applies when the true value of the parameter is on the boundary of the parameter space. 
+
+See https://en.wikipedia.org/wiki/Wilks%27_theorem.
 
 To demonstrate, consider the LR test for $b$ (let's assmue $a=0$ and consider $b$ only). We have
 
@@ -306,8 +297,6 @@ sample_size = 10
 poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
 plot_lr_add_chisquare(poiss_lr,'Poisson')
 ```
-[See results hereTBD]()
-
 
 ### Sample size = 50
 ```python
@@ -319,8 +308,6 @@ sample_size = 50
 poiss_lr  = lr_poiss(sample_size=10,h0=5,lambda_true=5)
 plot_lr_add_chisquare(poiss_lr,'Poisson')
 ```
-[See results hereTBD]()
-
 
 ### sample size = 500
 ```python
