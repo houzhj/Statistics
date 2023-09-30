@@ -13,7 +13,7 @@ where $X_{(i)}$ is the $i^{th}$ largest number among $X_1,...,X_n$
 Clearly, $a \leq X_{(1)} \leq X_{(n)} \leq c$. If any observed $X_i>c$, we can directly conclude that the null hypothesis is true. So let assume 
 $$X_{(1)} \leq ... \leq X_{(n)} \leq c$$
 
-As discussed [here](https://github.com/houzhj/Statistics/blob/main/02_Wald_LR_Tests.md), the Wald Test and the Likelihood Ratio Test (both are maximum-likelihood-based tests) can not be directly applied for uniform distribution. The purpose of this study is to investegate alternative testing methods. 
+As discussed [here](https://github.com/houzhj/Statistics/blob/main/02_Wald_LR_Tests.md), Wald test and the Likelihood Ratio test (both are maximum-likelihood-based tests) can not be directly applied for uniform distribution. The purpose of this study is to investegate alternative testing methods. 
 
 ### The contents of this note
 - **Test Statistic**
