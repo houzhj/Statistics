@@ -1,14 +1,20 @@
 # From Wald Test to Student's t test (T test)
 ### The contents of this note
-- **111**
-- **222**
+- **Wald Test**
+- **Examples with Bernoulli distribution**
+  - **Wald test with very Small Sample Size**
+  - **Simulation Analysis for Wald tests in Bernoulli distribution**
+    - Experiment A. Very small sample size
+    - Experiment B. Changing null hypothesis with fixed sample size(n=50)
+    - Experiment C. Changing the sample size
 
 
 $$$$
 
 $$$$
 
-# 1. Wald Test
+
+## Part 1 - Wald Test
 Wald test is a maximum likelihood estimate based test. It is based on the asymptotic normal approximation to the maximum likelihood estimator.
 Two equivalent expression of the Wald test statistics are shown below
 Consider the parameter $\theta$. The maximum likelihood of $\theta$ is $\hat{\theta}$
@@ -22,38 +28,20 @@ where $I(\theta)$ is the Fisher Information of $\theta$. Normally we can plug in
  
 (2) $W =  \dfrac{(\hat{\theta}-\theta_0)}{se(\hat{\theta})}\sim  N(0,1)$ or $W = \dfrac{(\hat{\theta}-\theta_0)^2}{var(\hat{\theta})} \sim \chi^2(1)$
 
-It can be shown that these expressions are equivalent. 
-That asymptotic normal approximation for the MLE says
-$$\sqrt{n}(\hat{\theta}-\theta) \sim N(0,I^{-1}(\theta))$$
-$$\downarrow$$
-$$var(\sqrt{n} \times \hat{\theta}) = I^{-1}(\theta)$$
-$$\downarrow$$
-$$var(\hat{\theta}) = \frac{1}{\sqrt{n}} \times I^{-1}(\theta) = \dfrac{1}{n I(\theta)}$$
-Plugging this to the first expression yields
-$$W = \sqrt{n} \times \sqrt{I(\theta)}(\hat{\theta}-\theta) = \sqrt{n I(\theta)}  \times (\hat{\theta}-\theta) =\sqrt{\dfrac{1}{var(\hat{\theta})}} \times (\hat{\theta}-\theta) = \dfrac{(\hat{\theta}-\theta_0)}{se(\hat{\theta})} $$
 
-Consider two examples below. These examples show that a Wald test does not work well when the sample size is very small. We consider hypothesis testing about the parameters from two distributions. 
-- Bernoulli distribution 
-- Normal distribution (Student's t test is discussed in this example)
-  
-This study is based on both analytical derivations and simulations.
-
-# 2. Examples with Bernoulli distribution 
+## Part 2 - Examples with Bernoulli distribution 
 
 In the following hypothesis test, $X \sim Ber(p)$ where $p$ is unknown. 
 $$H_0: p = p_0$$
 $$H_1: p \ne p_0$$
-The Wald test statistic is 
+The Wald test statistic in a given sample is 
 
-$$ W = \dfrac{(\hat{p}-p_0)}{se(\hat{p})} = \dfrac{(\hat{p}-p_0)}{se(\hat{p})}$$
+$$W = \dfrac{\sqrt{n}(\overline{X}-p_0)}{\sqrt{\overline{X}(1-\overline{X})}}$$
+where $\overline{X}$ is the sample mean. 
 
-The maximum likelihood estimator of $p$ is $\hat{p}=\overline{X}$, so the sample variance of $\hat{p}$ is 
-$$\widehat{Var}(\hat{p}) = \widehat{Var}(\overline{X}) = \widehat{Var}\left(\dfrac{1}{n} \sum_{i=1}^n X_i \right) =\dfrac{1}{n^2}\widehat{Var}\left(\sum_{i=1}^n X_i  \right)=\dfrac{1}{n^2}\times n \times \widehat{Var}(X_i) = \dfrac{\hat{p}(1-\hat{p})}{n} = \dfrac{\overline{X}(1-\overline{X})}{n}$$
+[See derivation here](https://github.com/houzhj/Statistics/blob/main/Math/02_f_w_t_t_01.md).
 
-So the observed $W$ statistic in a given sample is 
-$$W = \dfrac{(\hat{p}-p_0)}{\sqrt{\widehat{Var}(\hat{p})}} = \dfrac{\overline{X}-p_0}{\sqrt{\dfrac{\overline{X}(1-\overline{X})}{n}}}=\dfrac{\sqrt{n}(\overline{X}-p_0)}{\sqrt{\overline{X}(1-\overline{X})}}$$
-
-However, when n is small (for example 2 or 3), this statistic does not hold. 
+However, when n is small (for example 2 or 3), this statistic does not work well. 
 
 ## 2.1 - Very Small Sample Size 
 ### When the sample size is 2
@@ -72,10 +60,6 @@ However, when n is small (for example 2 or 3), this statistic does not hold.
 It can be seen that the probability of Type 1 error is high (>50\%) if we use the Wald statistics, regardless of the critical value and the value in $H_0$:
 $P(W=\infty |p=p_0) = (1-p_0)^2+p_0^2 \geq 0.5$.
 
-The plot for $y=p^3+(1-p)^3, p\in(0,1)$
-
-<img width="180" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/b898eab1-d017-4022-ae72-35ed98ef9b1d">
-
 ### When the sample size is 3
 - Case 1: $\overline{X} = 0 \rightarrow X_1=0=X_2=X_3=0$,
   - $W = \dfrac{\sqrt{n}(\overline{X}-p_0)}{\sqrt{\overline{X}(1-\overline{X})}}=\dfrac{\sqrt{3}(0-p_0)}{\sqrt{0(1-0))}}=\infty$.
@@ -91,9 +75,6 @@ The plot for $y=p^3+(1-p)^3, p\in(0,1)$
 
 It can be seen that the probability of Type 1 error is high (>25\%) if we use the Wald statistics, regardless of the critical value and the value in $H_0$: $P(W=\infty |p=p_0) = (1-p_0)^3+p_0^3 \geq 0.25$.
 
-The plot for $y=p^3+(1-p)^3, p\in(0,1)$
-
-<img width="195" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/a63270cc-a1e0-4935-bdfa-c26ca369034c">
 
 ## 2.2 - Simulation Analysis for Wald Tests in Bernoulli distribution 
 
@@ -155,8 +136,13 @@ An example of how the results look like
 wald_ber_two_side(sample_size=20,h0=0.4)
 ```
 The output is a list containing 1000 numbers (only a small portion of the results are shown below), each number is the $W$ statistic in one of 1000 experiments.
-
-<img width="194" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/04f40e67-8b40-4f4c-8707-d5716771a925">
+|    W Statistis      |
+|:-------------------:|
+| 2.2360679774997894, |
+| 1.3483997249264843, |
+|        ......       |
+|  0.4494665749754946 |
+|  1.549193338482967  |
 
 ### Experiment A. Very small sample size
 Three sample size are considered in the simulation analysis: 2,5,and 30. 
@@ -409,7 +395,7 @@ As shown in the table below, the Type 2 error rate is higher than 10\% until the
 <img width="273" alt="image" src="https://github.com/houzhj/Statistics/assets/33500622/5e899f8b-7bac-4b44-a475-82ba01d46dbf">
 
 
-# 3. Examples with Normal distribution 
+## Part 3 - Examples with Normal distribution 
 Consider the Wald test for the mean of a $N(\mu,\sigma^2)$ distribution. As discussed above, the Wald test statistic is
 $$W = \dfrac{\hat{\mu}-\mu}{\sqrt{var(\hat{\mu})}} = \dfrac{\hat{\mu}-\mu_0}{se(\hat{\mu})}$$
 
