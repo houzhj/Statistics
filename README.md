@@ -24,7 +24,7 @@ These studies are about various topics in statistics, including mathematical der
   - In this testing context, calculate the significant levels for given tests, and find the reject thresholds to achieve desired significant levels. 
 - [Two Sample Mean Test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_two_sample_mean_test.ipynb)
   - Conduct and compare several two-sample tests under different scenarios (equal/unequal sample size, equal/unequal variance)
-- From Wald Test to  Student's t test (T test)
+- [From Wald Test to  Student's t test (T test)](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_t_test.ipynb)
 - Multiple Hypothesis Testing (i.e. simultaneously testing multiple hypotheses)
 - Goodness of Fitness Tests
 
