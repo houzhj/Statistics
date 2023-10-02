@@ -18,7 +18,7 @@ These studies are about various topics in statistics, including mathematical der
   - Investigate the impact of sample sizes.
   - Consider the hypothesis testing about the parameters of four distributions: Bernoulli, Binomial, Poisson, and Uniform.
   - Demonstrated that the test statistic cannot be applied to case with Uniform distribution . 
-- [Hypothesis Testing Example with a Uniform Distribution](https://github.com/houzhj/Statistics/blob/main/02_Testing_with_Uniform.md)
+- [Hypothesis Testing Example with a Uniform Distribution](https://github.com/houzhj/Statistics/blob/main/ipynb/02_test_with_uniform_distribution.ipynb)
   - As discussed above, the Wald Test and the maximum-likelihood-based tests can not be directly applied for uniform distribution.
   - Investegate alternative testing methods.
   - In this testing context, calculate the significant levels for given tests, and find the reject thresholds to achieve desired significant levels. 
