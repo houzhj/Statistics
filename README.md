@@ -28,7 +28,7 @@ These studies are about various topics in statistics, including mathematical der
 - [Multiple Hypothesis Testing (i.e. simultaneously testing multiple hypotheses)](https://github.com/houzhj/Statistics/blob/main/ipynb/02_multiple_hypothesis_testing.ipynb)
 - Goodness of Fit Tests
   - [Pearson's Chi-squared test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_pearson_chi_squared_test.ipynb) 
-
+  - [Kolmogorov-Smirnov Test and Lilliefors Test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_ks_lilliefors_test.ipynb)
 ## 3. Linear Regression
 - Joint Distribution
 - Linear Regression: Estimate and T Test
