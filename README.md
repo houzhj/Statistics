@@ -26,7 +26,8 @@ These studies are about various topics in statistics, including mathematical der
   - Conduct and compare several two-sample tests under different scenarios (equal/unequal sample size, equal/unequal variance)
 - [From Wald Test to  Student's t test (T test)](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_t_test.ipynb)
 - [Multiple Hypothesis Testing (i.e. simultaneously testing multiple hypotheses)](https://github.com/houzhj/Statistics/blob/main/ipynb/02_multiple_hypothesis_testing.ipynb)
-- Goodness of Fitness Tests
+- Goodness of Fit Tests
+  - [Pearson's Chi-squared test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_pearson_chi_squared_test.ipynb) 
 
 ## 3. Linear Regression
 - Joint Distribution
