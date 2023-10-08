@@ -8,7 +8,8 @@ These studies are about various topics in statistics, including mathematical der
   - Three methods to calculate the confidence interval of a parameter: Conservative**, Solve, Plug-in.
 - [Delta Method](https://github.com/houzhj/Statistics/blob/main/ipynb/01_delta_method.ipynb)
   - Given the distribution of $X \sim D(\mu, \sigma^2)$, derive the variance of $g(X)$.
-- Bayes Estimate
+- [Bayes Estimate](https://github.com/houzhj/Statistics/blob/main/ipynb/01_bayes_estimate.ipynb)
+  - Bayes estimates with different prior distributions, examples for Bernoulli and Possion distribution. 
 
 ## 2. Hypothesis testing
 - [Wald Test and Likelihood Ratio Test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_lr_test.ipynb)
