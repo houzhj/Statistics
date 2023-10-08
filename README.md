@@ -6,12 +6,14 @@ These studies are about various topics in statistics, including mathematical der
 - Distribution
 - [Estimations and Confidence Interval](https://github.com/houzhj/Statistics/blob/main/ipynb/01_confidence_intervals.ipynb)
   - Three methods to calculate the confidence interval of a parameter: Conservative**, Solve, Plug-in.
+  - **Key words**: confidence interval
 - [Delta Method](https://github.com/houzhj/Statistics/blob/main/ipynb/01_delta_method.ipynb)
   - Given the distribution of $X \sim D(\mu, \sigma^2)$, derive the variance of $g(X)$.
+  - **Key words**: delta method
 - [Bayes Estimate](https://github.com/houzhj/Statistics/blob/main/ipynb/01_bayes_estimate.ipynb)
   - Bayes estimates with different prior distributions, examples for Bernoulli and Possion distribution.
   - Compared Bayes estimates with Frequentist estimates (maximum likelihood estimate).
-
+  - **Key words**: Bayes estimator, prior distribution, posterior distribution 
 ## 2. Hypothesis testing
 - [Wald Test and Likelihood Ratio Test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_lr_test.ipynb)
   - Wald test and likelihood ratio test (definitions, derivations, codes, etc.) 
