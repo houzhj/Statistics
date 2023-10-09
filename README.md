@@ -42,7 +42,7 @@ These studies are about various topics in statistics, including mathematical der
   - Kolmogorov-Smirnov test and Lilliefors test (definitions, derivations, codes, etc.)
   - Examples with Normal distribution and Uniform distribution
   - **Key words**: Kolmogorov-Smirnov test, Lilliefors test
-## 3. Linear Regression
-- Joint Distribution
-- Linear Regression: Estimate and T Test
+## 3. Regression
+- [Joint Distribution](https://github.com/houzhj/Statistics/blob/main/ipynb/03_joint_distribution.ipynb)
+- [Linear Regression: Estimate and T Test](https://github.com/houzhj/Statistics/blob/main/ipynb/03_linear_regression.ipynb)
 
