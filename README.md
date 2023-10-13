@@ -44,5 +44,5 @@ These studies are about various topics in statistics, including mathematical der
   - **Key words**: Kolmogorov-Smirnov test, Lilliefors test
 ## 3. Regression
 - [Joint Distribution](https://github.com/houzhj/Statistics/blob/main/ipynb/03_joint_distribution.ipynb)
-- [Linear Regression: Estimate and T Test](https://github.com/houzhj/Statistics/blob/main/ipynb/03_linear_regression.ipynb)
-
+- [Linear Regression](https://github.com/houzhj/Statistics/blob/main/ipynb/03_linear_regression.ipynb)
+- [Generalized Linear Regression]
