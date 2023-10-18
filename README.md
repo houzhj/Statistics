@@ -56,5 +56,12 @@ These studies are about various topics in statistics, including mathematical der
   - **Key words**: Exponential family, Link function and canonical link function
 
 ## 4. Interests and hobbies
-- [Texas hold 'em]()
+- [Texas hold 'em](https://github.com/houzhj/Statistics/blob/main/ipynb/IH_TexasHoldem.ipynb)
+  - Python codes for basic Texas hold 'em activities, such as simulating a two-player game, generating random hands, comparing hand values, etc.
+  - Design and test a strategy for simplified games (two player; no betting; order of action is not considered).
+  - Estimate the probabilities of hands (by simulation)
+  - Estimate the winning rate for a starting hands (by simulation)
 
+
+
+    
