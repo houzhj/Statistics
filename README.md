@@ -1,7 +1,7 @@
 # Statistics
 These studies are about various topics in statistics, including mathematical derivations of key statistical conclusions and their applications, implementation using Python code, and case studies based on simulations.
 
-## 1. Some important concepts in statistics
+## 1. Some important / interesting (or both) concepts in statistics
 - Central Limit Theorem
 - Distribution
 - [Estimations and Confidence Interval](https://github.com/houzhj/Statistics/blob/main/ipynb/01_confidence_intervals.ipynb)
@@ -45,4 +45,4 @@ These studies are about various topics in statistics, including mathematical der
 ## 3. Regression
 - [Joint Distribution](https://github.com/houzhj/Statistics/blob/main/ipynb/03_joint_distribution.ipynb)
 - [Linear Regression](https://github.com/houzhj/Statistics/blob/main/ipynb/03_linear_regression.ipynb)
-- [Generalized Linear Regression]
+- [Generalized Linear Regression](https://github.com/houzhj/Statistics/blob/main/ipynb/03_generalized_linear_regression.ipynb)
