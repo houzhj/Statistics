@@ -6,43 +6,46 @@ These studies are about various topics in statistics, including mathematical der
 - Distribution
 - [Estimations and Confidence Interval](https://github.com/houzhj/Statistics/blob/main/ipynb/01_confidence_intervals.ipynb)
   - Three methods to calculate the confidence interval of a parameter: Conservative**, Solve, Plug-in.
-  - **Key words**: confidence interval
+  - **Key words**: Confidence interval
 - [Delta Method](https://github.com/houzhj/Statistics/blob/main/ipynb/01_delta_method.ipynb)
   - Given the distribution of $X \sim D(\mu, \sigma^2)$, derive the variance of $g(X)$.
-  - **Key words**: delta method
+  - **Key words**: Delta method
 - [Bayes Estimate](https://github.com/houzhj/Statistics/blob/main/ipynb/01_bayes_estimate.ipynb)
   - Bayes estimates with different prior distributions, examples for Bernoulli and Possion distribution.
   - Compared Bayes estimates with Frequentist estimates (maximum likelihood estimate).
-  - **Key words**: Bayes estimator, prior distribution, posterior distribution 
+  - **Key words**: Bayes estimator, Prior distribution Posterior distribution 
 ## 2. Hypothesis testing
 - [Wald Test and Likelihood Ratio Test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_lr_test.ipynb)
   - Wald test and likelihood ratio test (definitions, derivations, codes, etc.) 
   - Examples with four distributions: Bernoulli, Binomial, Poisson, and Uniform.
-  - **Key words**: Wald test, likelihood ratio test, sample size, Type 1 Error, Type 2 Error
+  - **Key words**: Wald test, Likelihood ratio test, Sample size, Type 1 Error, Type 2 Error
 - [Hypothesis Testing Example with a Uniform Distribution](https://github.com/houzhj/Statistics/blob/main/ipynb/02_test_with_uniform_distribution.ipynb)
   - As discussed above, the two maximum-likelihood-based tests can not be directly applied for uniform distribution. Investegate an alternative test.
   - Applications: (1) calculate the significant levels for given tests, and (2) find the rejection thresholds to achieve desired significant levels.
-  - **Key words**: Uniform distribution, test design, properties of a test
+  - **Key words**: Uniform distribution, Test design, Properties of a test
 - [Two Sample Mean Test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_two_sample_mean_test.ipynb)
   - Conduct and compare several two-sample tests under different scenarios (equal/unequal sample size, equal/unequal variance)
-  - **Key words**: two sample mean test
+  - **Key words**: Two sample mean test
 - [From Wald Test to  Student's t Test (T test)](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_t_test.ipynb)
   - Failure of the Wald test with very small sample size. Using examples with Bernoulli and Normal distributions
   - Student's t test (definitions, derivations, codes, etc.)
-  - **Key words**: Wald test, small sample size, Student's t test
+  - **Key words**: Wald test, Small sample size, Student's t test
 - [Multiple Hypothesis Testing (i.e. simultaneously testing multiple hypotheses)](https://github.com/houzhj/Statistics/blob/main/ipynb/02_multiple_hypothesis_testing.ipynb)
   - Multiple hypothesis testing (definitions, derivations, codes, etc.)
   - Two commonly used methods in multiple hypothesis testing: Family Wise Error Rate (FWER) and False Discovery Rate (FDR).
-  - **Key words**: multiple hypothesis testing, FWER, FDR, Bonferroni Correction, Benjamin–Hochberg Method
+  - **Key words**: Multiple hypothesis testing, FWER, FDR, Bonferroni Correction, Benjamin–Hochberg Method
 - [(Goodness of Fit Test) Pearson's Chi-squared Test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_pearson_chi_squared_test.ipynb) 
   - Pearson's Chi-squared test (definitions, derivations, codes, etc.)
   - Examples with Categorial distribution and Poisson distribution
-  - **Key words**: Pearson's chi-squared test, categorical distribution, Poisson distribution, degree of freedom
+  - **Key words**: Pearson's chi-squared test, Categorical distribution, Poisson distribution, Degree of freedom
 - [(Goodness of Fit Test) Kolmogorov-Smirnov Test and Lilliefors Test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_ks_lilliefors_test.ipynb)
   - Kolmogorov-Smirnov test and Lilliefors test (definitions, derivations, codes, etc.)
   - Examples with Normal distribution and Uniform distribution
   - **Key words**: Kolmogorov-Smirnov test, Lilliefors test
 ## 3. Regression
 - [Joint Distribution](https://github.com/houzhj/Statistics/blob/main/ipynb/03_joint_distribution.ipynb)
+  - Concepts in the context of joint distribution (bivariate)
+  - Creating random samples from given probability density function (univariate pdf or joint pdf)
+  - **Key words**: Joint distribution, Random Variable generation
 - [Linear Regression](https://github.com/houzhj/Statistics/blob/main/ipynb/03_linear_regression.ipynb)
 - [Generalized Linear Regression](https://github.com/houzhj/Statistics/blob/main/ipynb/03_generalized_linear_regression.ipynb)
