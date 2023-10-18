@@ -13,7 +13,11 @@ These studies are about various topics in statistics, including mathematical der
 - [Bayes Estimate](https://github.com/houzhj/Statistics/blob/main/ipynb/01_bayes_estimate.ipynb)
   - Bayes estimates with different prior distributions, examples for Bernoulli and Possion distribution.
   - Compared Bayes estimates with Frequentist estimates (maximum likelihood estimate).
-  - **Key words**: Bayes estimator, Prior distribution Posterior distribution 
+  - **Key words**: Bayes estimator, Prior distribution Posterior distribution
+- [Estimation with latent variables](https://github.com/houzhj/Statistics/blob/main/ipynb/01_estimation_with_latent_variables.ipynb)
+  - Examples of estimating a parameter using observations of a latent variable
+  - Given that $X_i\sim Exp(\lambda)$ where $\lambda$ is an unknown parameter to estimate. Use the observations of a latent variable $Y_i$, instead of observations of $X_i$.
+  - **Key words**: Latent variables, Exponential distribution
 ## 2. Hypothesis testing
 - [Wald Test and Likelihood Ratio Test](https://github.com/houzhj/Statistics/blob/main/ipynb/02_wald_lr_test.ipynb)
   - Wald test and likelihood ratio test (definitions, derivations, codes, etc.) 
