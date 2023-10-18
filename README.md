@@ -54,3 +54,7 @@ These studies are about various topics in statistics, including mathematical der
 - [Generalized Linear Regression](https://github.com/houzhj/Statistics/blob/main/ipynb/03_generalized_linear_regression.ipynb)
   - Mathematics behind generalized linear regression (definitions, derivations, etc.)
   - **Key words**: Exponential family, Link function and canonical link function
+
+## 4. Interests and hobbies
+- [Texas hold 'em]()
+
