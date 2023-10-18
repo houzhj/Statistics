@@ -48,4 +48,9 @@ These studies are about various topics in statistics, including mathematical der
   - Creating random samples from given probability density function (univariate pdf or joint pdf)
   - **Key words**: Joint distribution, Random Variable generation
 - [Linear Regression](https://github.com/houzhj/Statistics/blob/main/ipynb/03_linear_regression.ipynb)
+  - Least Square Estimator (distribution, expression, derivations, codes, etc.)
+  - Hypothesis testing in linear regressions (definitions, derivations, codes, etc.). Regular hypothesis (e.g., $\beta_1=1$), two-coefficients hypothesis (e.g, $\beta_1=\beta_2$), and multiple testing ($0<\beta_1<\beta_2$).
+  - **Key words**: Least Square Estimator, T test for linear regression models
 - [Generalized Linear Regression](https://github.com/houzhj/Statistics/blob/main/ipynb/03_generalized_linear_regression.ipynb)
+  - Mathematics behind generalized linear regression (definitions, derivations, etc.)
+  - **Key words**: Exponential family, Link function and canonical link function
