@@ -3,7 +3,7 @@ These studies are about various topics in statistics, including mathematical der
 
 ## 1. Some important / interesting (or both) concepts in statistics
 - [Estimations and Confidence Interval](https://github.com/houzhj/Statistics/blob/main/ipynb/01_confidence_intervals.ipynb)
-  - Three methods to calculate the confidence interval of a parameter: Conservative**, Solve, Plug-in.
+  - Three methods to calculate the confidence interval of a parameter: Conservative, Solve, Plug-in.
   - **Key words**: Confidence interval
 - [Delta Method](https://github.com/houzhj/Statistics/blob/main/ipynb/01_delta_method.ipynb)
   - Given the distribution of $X \sim D(\mu, \sigma^2)$, derive the variance of $g(X)$.
