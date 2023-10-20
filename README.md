@@ -2,8 +2,6 @@
 These studies are about various topics in statistics, including mathematical derivations of key statistical conclusions and their applications, implementation using Python code, and case studies based on simulations.
 
 ## 1. Some important / interesting (or both) concepts in statistics
-- Central Limit Theorem
-- Distribution
 - [Estimations and Confidence Interval](https://github.com/houzhj/Statistics/blob/main/ipynb/01_confidence_intervals.ipynb)
   - Three methods to calculate the confidence interval of a parameter: Conservative**, Solve, Plug-in.
   - **Key words**: Confidence interval
